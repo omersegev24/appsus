@@ -3,9 +3,9 @@ import userMsg from './cmps/user-msg.cmp.js'
 
 export default{
     template: `
-        <section class="my-app">
+        <section class="book-app-main">
             <header-app></header-app>
-            <router-view></router-view>
+                <router-view></router-view>
             <user-msg></user-msg>
         </section>`,
     components:{

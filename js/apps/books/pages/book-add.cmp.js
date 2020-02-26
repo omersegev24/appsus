@@ -32,7 +32,7 @@ export default{
         addBook(){
             eventBus.$on('addGBook',(googleBook) => {
                 bookService.addGoogleBook(googleBook)
-                eventBus.$emit('msg', {txt: 'book Added', type: 'success', link: '/bookApp/book/'+googleBook.id})
+                eventBus.$emit('msg', {txt: 'book Added', type: 'success', link: '/books/'+googleBook.id})
             })
         }
     },
