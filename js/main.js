@@ -7,7 +7,7 @@ new Vue({
     el: '#app',
     router,
     template: `
-        <section class="my-app">
+        <section class="appsus-app">
             <main-nav></main-nav>
             <router-view></router-view>
         </section>`,

@@ -4,7 +4,7 @@ import {eventBus} from '../services/event-bus.service.js'
 export default {
     template:`
         <div class="book-preview">
-            <router-link v-if="isDetailsPage" :to="'/bookApp/book/'+book.id">
+            <router-link v-if="isDetailsPage" :to="'/books/'+book.id">
                 <img class="book-img" :src="book.thumbnail" />
             </router-link>
         
@@ -43,7 +43,7 @@ export default {
     },
     methods:{
         isDetails(){
-            this.isDetailsPage = (this.$route.path !== '/bookApp/add')
+            this.isDetailsPage = (this.$route.path !== '/books/add')
         },
         addGoogleBook(){
             eventBus.$emit('addGBook', this.book)
