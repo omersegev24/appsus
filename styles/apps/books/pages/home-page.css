@@ -1,0 +1,42 @@
+.home-page {
+    text-align: center;
+}
+
+.home-page h1 {
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+.home-page h1:hover {
+    opacity: 0.3;
+}
+
+.rollout {
+    animation: rollout 2.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+.rotator {
+    margin: 20px;
+}
+
+.animation {
+    animation: rotator 20s linear infinite;
+}
+
+@keyframes rotator {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(0deg) rotateY(360deg);
+    }
+}
+
+@keyframes rollout {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(1000px, 0, 0);
+    }
+}

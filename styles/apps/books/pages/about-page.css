@@ -1,0 +1,50 @@
+.about-page {
+  text-align: center;
+}
+
+.about-page p {
+  width: 60vw;
+  margin: 0 auto;
+}
+
+.about-page img {
+  width: 45%;
+  margin-bottom: 100px;
+}
+
+.about-page h1 {
+  cursor: pointer;
+}
+
+.about-page h1:hover {
+  opacity: 0.3;
+}
+
+.about-page a {
+  padding: 10px;
+  text-decoration: none;
+}
+
+.about-page a:hover {
+  color: red;
+}
+
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

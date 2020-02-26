@@ -1,0 +1,27 @@
+
+@import '/styles/apps/books/cmps/book-list.css';
+@import '/styles/apps/books/cmps/book-prev.css';
+@import '/styles/apps/books/cmps/book-details.css';
+@import '/styles/apps/books/cmps/book-filter.css';
+@import '/styles/apps/books/cmps/long-text.css';
+@import '/styles/apps/books/cmps/review-add.css';
+@import '/styles/apps/books/cmps/user-msg.css';
+@import '/styles/apps/books/cmps/app-header.css';
+@import '/styles/apps/books/pages/about-page.css';
+@import '/styles/apps/books/pages/home-page.css';
+
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+.my-app h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+}
