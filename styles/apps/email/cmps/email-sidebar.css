@@ -1,0 +1,14 @@
+.email-sidebar {
+    width: 250px;
+    
+    
+}
+
+.email-sidebar ul{
+    list-style: none;
+}
+.email-sidebar li{
+    font-size: 1.3rem;
+    padding: 10px 20px;
+    font-family: roboto reg;
+}

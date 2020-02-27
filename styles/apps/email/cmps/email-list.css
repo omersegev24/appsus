@@ -1,6 +1,8 @@
-.email-list {
-    flex: 0 0 150px;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
+.email-list a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.email-list{
+    align-self: center;
 }
