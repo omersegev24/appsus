@@ -2,9 +2,11 @@ import { emailService } from '../services/email.service.js'
 
 export default {
     template: `
-        <section class="book-details" v-if="currEmail">
-            <p>{{currEmail.subject}}</p>
-            <p>{{currEmail.from}}</p>
+        <section class="email-details" v-if="currEmail">
+            <div class="email-det-subject">{{currEmail.subject}}</div>
+            <div class="from-det">From: {{currEmail.from}} <span>{{currEmail.sentAt}}</span></div>
+            <div class="email-body-det">{{currEmail.body}}</div>
+            
         </section>
     `,
     data() {

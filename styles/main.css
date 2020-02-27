@@ -6,6 +6,10 @@
     font-family: roboto reg;
     src: url(/styles/fonts/Roboto-Regular.ttf)
   }
+@font-face {
+    font-family: roboto bld;
+    src: url(/styles/fonts/Roboto-Bold.ttf)
+  }
 
 *{
     box-sizing: border-box;
