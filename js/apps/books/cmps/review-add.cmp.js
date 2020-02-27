@@ -1,15 +1,18 @@
 import {bookService} from '../services/book.service.js'
 import {eventBus} from '../services/event-bus.service.js'
 
+
+
+// TO DO: CHANGE TO STAR LIB
 export default {
     template: `
     <section class="review-container">
         <h1>Reviews</h1>
         <div class="review-content-container">
-            <form @submit.prevent="saveReview">
+            <form class="review-form" @submit.prevent="saveReview">
             <input type="text" ref="readerInput" name="input" v-model="review.name" class="reader-name" placeholder="Your name"/>
             <div class="rate"> 
-                <input v-model="review.rate" type="radio" id="star5" name="rate" value="5" />
+                <input v-model="review.rate" type="radio" id="star5" name="rate" value="5" /> 
                 <label for="star5" title="text"></label>
                 <input v-model="review.rate" type="radio" id="star4" name="rate" value="4" />                    
                 <label for="star4" title="text"></label>

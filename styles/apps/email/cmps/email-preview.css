@@ -6,12 +6,19 @@
     align-items: center;
     padding: 20px;
     border-bottom: 1px solid #c3c3c3e0;
-    font-family: roboto reg;
     font-size: 1.1rem;
     font-weight: bold;
-    
 }
 
+.testt{
+    display: flex;
+}
+
+
+.email-preview:hover {
+    transform: scale(1.025);
+    box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent, 0 2px 15px rgba(0, 0, 0, 0.30);
+}
 
 .email-content-prev {
     overflow: hidden;
@@ -24,6 +31,25 @@
     margin-left: auto;
     text-align: right;
     padding-right: 10px;
+}
+
+.email-prev-btns {
+    display: flex;
+    margin-left: auto;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.email-prev-btns>* {
+    
+    opacity: 0.5;
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 1.4rem;
+}
+
+.delete-btn-prev:hover, .read-btn-prev:hover, .reply-btn-prev:hover {
+    opacity: 1;
 }
 
 .email-from-prev {

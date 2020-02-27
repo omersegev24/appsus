@@ -6,8 +6,7 @@ import emailList from '../cmps/email-list.cmp.js'
 export default {
     template: `
     <section class="email-inbox">
-        
-        <email-list :emails="emailsToShow"></email-list>
+        <email-list @emailClicked="markRead" :emails="emailsToShow"></email-list>
     </section>
     `,
     components: {
@@ -26,5 +25,10 @@ export default {
     created() {
         emailService.getEmails()
             .then(emails => this.emails = emails)
+    },
+    methods: {
+        markRead(email) {
+            emailService.updateIsRead(email)
+        }
     }
 }

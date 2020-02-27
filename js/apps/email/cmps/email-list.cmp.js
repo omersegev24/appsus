@@ -5,9 +5,9 @@ export default {
          <section class="email-list" >
          <ul>
             <template v-for="email in emails">
-                <router-link :to="'/email/'+email.id">
-                    <email-preview :email="email"></email-preview>
-                </router-link>
+                <router-link :to="'/email/'+email.id"> 
+                        <email-preview @click.native="markRead(email)" :email="email"></email-preview>
+                </router-link> 
             </template>
          </ul>
          </section>
@@ -15,5 +15,11 @@ export default {
     props: ['emails'],
     components: {
         emailPreview
+    },
+    methods: {
+        markRead(email) {
+            this.$emit('emailClicked', email)
+        }
     }
 }
+
