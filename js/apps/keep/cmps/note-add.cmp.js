@@ -6,11 +6,11 @@ export default{
     <form @submit="addNote">
         <input type="text" :placeholder="placeholder" >
     </form>
-        <button @click="selectNew('noteText')">Text</button>
-        <button @click="selectNew('noteImg')">image</button>
-        <button @click="selectNew('noteVideo')">video</button>
+        <button @click="selectNew('noteText')" class="fas fa-font"></button>
+        <button @click="selectNew('noteImg')" class="far fa-image"></button>
+        <button @click="selectNew('noteVideo')" class="fab fa-youtube"></button>
         
-        <button @click="selectNew('noteTodos')">Todo</button>
+        <button @click="selectNew('noteTodos')" class="fas fa-list-ul"></button>
     </section>
     `,
     data(){

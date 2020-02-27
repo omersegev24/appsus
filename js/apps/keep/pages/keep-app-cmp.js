@@ -28,10 +28,8 @@ export default{
     },
     computed: {
         noteForDisplay(){
-            if (!this.filterBy) return this.notes;
-            return this.notes.filter(note => {
-                return note.title.includes(this.filterBy.title)
-            });
+            if (!this.filterBy || this.filterBy.length === 0) return this.notes;
+            return this.notes.filter(note => this.filterBy.includes(note.type))
         }
     },
     methods:{

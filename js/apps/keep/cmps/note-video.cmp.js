@@ -1,6 +1,6 @@
 export default {
     template: `
-   <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+   <iframe :src="info.url"></iframe>
     `,
     props: ['info'],
 }

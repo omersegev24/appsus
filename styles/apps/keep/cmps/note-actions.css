@@ -1,0 +1,35 @@
+.note-item-actions{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.action{
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.action:hover{
+    color: blue;
+}
+
+.color-dropdown{
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    left: 35px;
+}
+
+.color-dropdown>*{
+    padding: 0em;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid #eee;
+}
+
+.color-picker:hover .color-dropdown{
+    visibility: visible;
+}

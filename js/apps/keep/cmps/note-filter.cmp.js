@@ -4,8 +4,7 @@ export default {
     <section class="note-filter">
         <h3>Filter note:</h3>
         <div class="filter-inputs">
-            <!-- <input type="text" placeholder="Search for note..." v-model="filterBy.txt" @input="emitFilter"/> -->
-            <v-select multiple v-model="filterBy" :options="['All','Text', 'Image','Video', 'List']" /> </v-select>
+            <v-select multiple v-model="filterBy" :options="['Text','Image','Video', 'List']" /> </v-select>
         </div>
     </section>`,
     data() {
@@ -15,18 +14,15 @@ export default {
     },
     watch:{
         filterBy(){
-            console.log(this.filterBy)
-        }
-    },
-    methods:{
-        emitFilter() {
-            this.$emit('set-filter', this.filterBy)
-        },
-        get(val){
-            console.log(val)
+            var filters = this.filterBy.map(filter => {
+                return (filter === 'Image')? 'noteImg': (filter === 'Video')?
+                 'noteVideo':(filter === 'Text')? 'noteText': (filter === 'List')? 'noteTodos': '';
+            });
+            this.$emit('set-filter', filters)
         }
     },
     components:{
         'v-select': VueSelect.VueSelect
     }
 }
+
