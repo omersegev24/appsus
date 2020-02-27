@@ -4,9 +4,10 @@ import noteTodos from './note-todos.cmp.js'
 import noteActions from './note-actions.cmp.js'
 import noteVideo from './note-video.cmp.js'
 
+
 export default {
     template:`
-        <section class="note">
+        <section class="note" :style="note.style" :class="isMark">
             <component :class="note.type" :is="note.type" :info="note.info"></component>
             <note-actions :note="note"></note-actions>
         </section>
@@ -17,8 +18,13 @@ export default {
         noteImg,
         noteTodos,
         noteActions,
-        noteVideo
+        noteVideo,
     },
+    computed:{
+        isMark(){
+           return (this.note.isMark)? 'mark': '';
+        }
+    }
 }
 
 

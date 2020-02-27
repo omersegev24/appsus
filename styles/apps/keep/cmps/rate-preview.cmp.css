@@ -43,3 +43,7 @@
 .noteVideo {
     width: 100%;
 }
+
+.mark {
+    border: 2px solid yellowgreen;
+}

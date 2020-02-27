@@ -2,7 +2,7 @@ export default {
     template: `
         <ul>
             <li v-for="todo in info.todos">
-                <span>{{todo.txt}}</span> <span>{{todo.doneAt}}</span>
+                <span>{{todo.txt}}</span>
             </li>
         </ul>
     `,
