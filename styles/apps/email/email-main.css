@@ -2,9 +2,12 @@
 @import '/styles/apps/email/cmps/email-sidebar.css';
 @import '/styles/apps/email/cmps/email-list.css';
 @import '/styles/apps/email/pages/email-details.css';
+@import '/styles/apps/email/pages/email-compose.css';
 
 
-
-.email-main{
+.email-main {
     display: flex;
+    padding: 0px 10px;
+    width: 1020px;
+    font-family: roboto reg;
 }
