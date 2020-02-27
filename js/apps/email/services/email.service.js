@@ -3,8 +3,14 @@ import { utilService } from '../../../services/util.service.js'
 
 const EMAILS_KEY = 'emails'
 const gEmails = [
-    { id: 'adasd', sender: 'Daniel', subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: 1551133930594 },
-    { id: 'toasdids', sender: 'Omer', subject: 'How are you?', body: 'See you in a while', isRead: false, sentAt: 1551133930594 },
+    { id: 'adasd', from: 'Daniel', subject: 'Wassap?', body: 'sodaleSsodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum psodales suscipit tellus tincidunt mauris elits suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!', isRead: false, sentAt: 1551133930594 },
+    { id: 'adasd', from: 'Daniel', subject: 'Wassap?', body: 'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!', isRead: false, sentAt: 1551133930594 },
+    { id: 'adasd', from: 'Daniel', subject: 'Wassap?', body: 'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!', isRead: false, sentAt: 1551133930594 },
+    { id: 'adasd', from: 'Daniel', subject: 'Wassap?', body: 'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!', isRead: false, sentAt: 1551133930594 },
+    { id: 'adasd', from: 'Daniel', subject: 'Wassap?', body: 'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!', isRead: false, sentAt: 1551133930594 },
+    { id: 'adasd', from: 'Daniel', subject: 'Wassap?', body: 'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!', isRead: false, sentAt: 1551133930594 },
+    { id: 'adasd', from: 'Daniel', subject: 'Wassap?', body: 'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!', isRead: false, sentAt: 1551133930594 },
+    { id: 'adasd', from: 'Daniel', subject: 'Wassap?', body: 'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!', isRead: false, sentAt: 1551133930594 },
 ]
 
 export const emailService = {

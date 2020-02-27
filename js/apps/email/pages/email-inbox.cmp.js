@@ -5,10 +5,9 @@ import emailList from '../cmps/email-list.cmp.js'
 
 export default {
     template: `
-    <section class="email-app">
-        <h1>email-app.cmp</h1>
+    <section class="email-inbox">
+        
         <email-list :emails="emailsToShow"></email-list>
-        <router-view :emails="emailsToShow"></router-view>
     </section>
     `,
     components: {
