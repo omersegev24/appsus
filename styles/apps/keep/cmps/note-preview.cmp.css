@@ -44,6 +44,10 @@
 .noteVideo {
     width: 100%;
 }
+.noteAudio {
+    width: 100%;
+    outline: none;
+}
 
 .mark {
     border: 2px solid yellowgreen;

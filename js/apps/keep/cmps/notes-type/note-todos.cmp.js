@@ -1,8 +1,7 @@
-import {eventBus} from '../../../services/event-bus.service.js'
 
 export default {
     template: `
-        <ul>
+        <ul class="note-todos">
             <li v-for="todo in info.todos">
                 <span @click="toggleTodo(todo,todo.txt)" :class="isTodoDone(todo.isDone)">{{todo.txt}}</span>
             </li>

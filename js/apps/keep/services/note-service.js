@@ -59,6 +59,19 @@ const notesDB = [
             backgroundColor: "#ffffff"
         }  
     },
+    {
+        type: "noteAudio",
+        id: utilService.makeId(),
+        isPinned: true,
+        isMark: true,
+        info: {
+            title: "How was this audio",
+            url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+        },
+        style: { 
+            backgroundColor: "#ffffff"
+        }  
+    },
 ];
 
 export const noteService = {
@@ -66,6 +79,7 @@ export const noteService = {
     setNote,
     replaceNote,
     addNewNote,
+    sendNote
 }
 
 function getNotes() {
@@ -129,6 +143,9 @@ function editNote(settings){
         case 'noteImg':
             settings.note.info.url = settings.val
             break;
+        case 'noteAudio':
+            settings.note.info.url = settings.val
+            break;
         case 'noteVideo':
             var id = _getYoutubeVidId(settings.val)
             settings.note.info.url = `https://www.youtube.com/embed/${id}`
@@ -174,6 +191,12 @@ function addNewNote(value, type){
                 url: value
             }
             break;
+        case 'noteAudio':
+            info = {
+                title: "audio",
+                url: value
+            }
+            break;
         case 'noteTodos':
             info = {
                 title: "How was it:",
@@ -211,10 +234,12 @@ function addTodos(value){
     })
     return todos; 
 }
+function sendNote(value){
+    console.log(value)
+    router.push({path:`/email/${value}`})
+}
 
 function _getYoutubeVidId(url) {
-    console.log(url)
-    debugger;
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     const match = url.match(regExp);
 

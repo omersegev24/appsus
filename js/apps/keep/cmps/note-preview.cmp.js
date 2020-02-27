@@ -1,8 +1,9 @@
-import noteText from './note-text.cmp.js'
-import noteImg from './note-img.cmp.js'
-import noteTodos from './note-todos.cmp.js'
+import noteText from './notes-type/note-text.cmp.js'
+import noteImg from './notes-type/note-img.cmp.js'
+import noteTodos from './notes-type/note-todos.cmp.js'
 import noteActions from './note-actions.cmp.js'
-import noteVideo from './note-video.cmp.js'
+import noteVideo from './notes-type/note-video.cmp.js'
+import noteAudio from './notes-type/note-audio.cmp.js'
 
 
 export default {
@@ -19,6 +20,7 @@ export default {
         noteTodos,
         noteActions,
         noteVideo,
+        noteAudio
     },
     computed:{
         isMark(){

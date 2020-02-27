@@ -1,4 +1,5 @@
-import missKeep from './apps/keep/keep-main.js'
+import missKeep from './apps/keep/pages/keep-app-cmp.js'
+
 import emailApp from './apps/email/email-app.js'
 import emailInbox from './apps/email/pages/email-inbox.cmp.js'
 import emailCompose from './apps/email/cmps/email-compose.cmp.js'
@@ -9,8 +10,12 @@ import books from './apps/books/pages/book-app.cmp.js'
 import bookDetails from './apps/books/pages/book-details.cmp.js'
 import bookAdd from './apps/books/pages/book-add.cmp.js'
 
+import homePage from './pages/home-page.cmp.js'
+import aboutPage from './pages/about-page.cmp.js'
 
 const routes = [
+    { path: '/', component: homePage},
+    { path: '/about', component: aboutPage},
     { path: '/missKeep', component: missKeep },
 
     { path: '/email', component: emailApp,

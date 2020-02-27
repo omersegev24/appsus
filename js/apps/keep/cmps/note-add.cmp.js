@@ -3,14 +3,16 @@ import {noteService} from '../services/note-service.js'
 export default{
     template:`
     <section class="note-add">
-    <form @submit="addNote">
+    <form class="add-input" @submit="addNote">
         <input type="text" :placeholder="placeholder" >
     </form>
-        <button @click="selectNew('noteText')" class="fas fa-font"></button>
-        <button @click="selectNew('noteImg')" class="far fa-image"></button>
-        <button @click="selectNew('noteVideo')" class="fab fa-youtube"></button>
-        
-        <button @click="selectNew('noteTodos')" class="fas fa-list-ul"></button>
+    <div class="add-button-container">
+        <button @click="selectNew('noteText')" class="fas fa-font add-btn"></button>
+        <button @click="selectNew('noteImg')" class="far fa-image add-btn"></button>
+        <button @click="selectNew('noteVideo')" class="fab fa-youtube add-btn"></button>
+        <button @click="selectNew('noteAudio')" class="fas fa-volume-up add-btn"></button>
+        <button @click="selectNew('noteTodos')" class="fas fa-list-ul add-btn"></button>
+    </div>
     </section>
     `,
     data(){
@@ -33,8 +35,13 @@ export default{
                     this.placeholder = 'Enter comma separated list...'
                     break;
                 case 'noteImg':
+                    this.placeholder = 'Enter image URL...'
+                    break;
+                case 'noteAudio':
+                    this.placeholder = 'Enter Audio URL...'
+                    break;
                 case 'noteVideo':
-                    this.placeholder = 'Enter url...'
+                    this.placeholder = 'Enter video URL...'
             }
         },
         addNote(ev){
