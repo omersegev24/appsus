@@ -1,7 +1,6 @@
 .note-actions-container{
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;  
 }
 
 .note-item-actions{

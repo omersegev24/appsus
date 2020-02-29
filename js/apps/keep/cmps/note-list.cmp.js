@@ -17,7 +17,7 @@ export default{
     `,
     props: ['notes'],
     created(){
-        setTimeout(this.resizeAllGridItems, 100);
+        setTimeout(this.resizeAllGridItems, 200);
     },
     watch:{
         notes(){

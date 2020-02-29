@@ -1,6 +1,7 @@
 @import "./lib/vue-select.css";
 
 @import './pages/home-page.css';
+@import "./pages/app-header.css";
 
 @import '/styles/apps/books/books-main.css';
 @import '/styles/apps/keep/main.keep.css';
@@ -16,11 +17,20 @@
   font-family: roboto bld;
   src: url(/styles/fonts/Roboto-Bold.ttf);
 }
+@font-face {
+  font-family: inco;
+  src: url(/styles/fonts/Inconsolata/Inconsolata-Regular.ttf);
+}
 
 * {
   box-sizing: border-box;
 }
 
-html {
-  font-family: monospace;
+.router-link-active {
+  text-decoration: none;
+  color: red;
+}
+
+.main-footer{
+  font-family: inco;
 }

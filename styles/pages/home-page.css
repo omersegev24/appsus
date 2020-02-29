@@ -1,5 +1,7 @@
 .home-page-container {
     text-align: center;
+    color: #ffffff;
+    font-family: Roboto, sans-serif;
 }
 
 .home-books {
@@ -14,7 +16,7 @@
 .home-page-link {
     background-color: #c7c7c5;
     position: sticky; /* button move from top buttom*/
-    width: 150px;
+    width: fit-content;
     top: 64%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -58,6 +60,10 @@
 .home-page-container p {
     margin: 0 auto;
     width: 50%;
+    font-size: 1rem;
+}
+.home-page-container h2 {
+    font-size: 2rem;
 }
 
 .home-note p, .home-more p, .home-books p {

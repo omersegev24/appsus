@@ -5,7 +5,7 @@ export default{
     template: `
         <section class="book-app-main">
             <header-app></header-app>
-                <router-view></router-view>
+            <router-view></router-view>
             <user-msg></user-msg>
         </section>`,
     components:{

@@ -1,9 +1,6 @@
 export default {
   template: `
-  
-  
     <section class="book-filter">
-        <h3>Filter book:</h3>
         <div class="filter-inputs">
             <input type="text" placeholder="Start typing book name.." v-model="filterBy.title" @input="emitFilter"/>
             <span>Price from: {{filterBy.fromPrice}}</span>
