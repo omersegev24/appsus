@@ -1,8 +1,7 @@
-
-import {eventBus} from '../services/event-bus.service.js'
+import { eventBus } from "../services/event-bus.service.js";
 
 export default {
-    template:`
+  template: `
         <div class="book-preview">
             <router-link v-if="isDetailsPage" :to="'/books/'+book.id">
                 <img class="book-img" :src="book.thumbnail" />
@@ -18,35 +17,34 @@ export default {
             <!-- <img class="saleImg" v-if="onSale" src="./img/sale Sign.gif" /> -->
         </div>
     `,
-    data(){
-        return{
-            isDetailsPage: false
-        }
-    },
+  data() {
+    return {
+      isDetailsPage: false
+    };
+  },
 
-    props: ['book'],
+  props: ["book"],
 
-    created(){
-        this.isDetails()
-        
-    },
+  created() {
+    this.isDetails();
+  },
 
-    computed: {
-        currPrice() {
-            var currency = this.book.listPrice.currencyCode
-            var curr = (currency === 'USD') ? '$' : (currency === 'ILS') ? '₪' : '€';
-            return this.book.listPrice.amount + curr;
-        },
-        onSale(){
-            return this.book.listPrice.isOnSale;
-        },
+  computed: {
+    currPrice() {
+      var currency = this.book.listPrice.currencyCode;
+      var curr = currency === "USD" ? "$" : currency === "ILS" ? "₪" : "€";
+      return this.book.listPrice.amount + curr;
     },
-    methods:{
-        isDetails(){
-            this.isDetailsPage = (this.$route.path !== '/books/add')
-        },
-        addGoogleBook(){
-            eventBus.$emit('addGBook', this.book)
-        }
+    onSale() {
+      return this.book.listPrice.isOnSale;
     }
-}
+  },
+  methods: {
+    isDetails() {
+      this.isDetailsPage = this.$route.path !== "/books/add";
+    },
+    addGoogleBook() {
+      eventBus.$emit("addGBook", this.book);
+    }
+  }
+};

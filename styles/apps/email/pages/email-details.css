@@ -20,4 +20,8 @@
 
 .email-body-det {
     padding: 10px 15px;
+    height: 100vh;
+    padding: 10px 15px;
+    white-space: pre;
+    overflow-y: scroll;
 }

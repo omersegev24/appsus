@@ -1,29 +1,46 @@
-
 import { emailService } from '../services/email.service.js'
 
 export default {
-    template: `
-        <section class="email-compose"">
+  template: `
+        <section class="email-compose">
         <div class="email-compose-header">New Message</div>
             <form class="email-form">
-                <input type="text" placeholder="To:"></input>
-                <input type="text" class="subject-input" v-model="email.subject" placeholder="Subject"></input>
+                <input type="text" placeholder="To:"/>
+                <input type="text" class="subject-input" v-model="email.subject" placeholder="Subject"/>
                 <textarea class="email-body-input" v-model="email.body"></textarea>
                 <button @click.prevent="sendEmail">Send</button>
             </form>
         </section>
     `,
-    data() {
-        return {
-            email: { subject: null, body: null }
-        }
-    },
-    methods: {
-        sendEmail() {
-            emailService.addEmail(this.email.subject, this.email.body, Date.now())
-                .then(() => {
-                    this.$router.push('/email')
-                })
-        }
+  data() {
+    return {
+      email: { subject: null, body: null }
     }
+  },
+  created() {
+    this.loadEmail()
+  },
+  methods: {
+    /* .addEmail(this.email.subject, this.email.body, Date.now())*/
+    sendEmail() {
+      emailService.saveEmail(this.email).then(() => {
+        this.$router.push('/email')
+      })
+    },
+    loadEmail() {
+      const emailId = this.$route.params.id
+      if (emailId) {
+        emailService.getEmailById(emailId).then(email => {
+          const emailCopy = JSON.parse(JSON.stringify(email))
+          this.email = emailCopy
+          this.email.subject = 'Re:'.concat(this.email.subject)
+        })
+      }
+    }
+  },
+  watch: {
+    '$route.params.id'() {
+      this.loadEmail()
+    }
+  }
 }

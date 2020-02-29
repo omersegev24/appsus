@@ -9,27 +9,27 @@ import books from './apps/books/pages/book-app.cmp.js'
 import bookDetails from './apps/books/pages/book-details.cmp.js'
 import bookAdd from './apps/books/pages/book-add.cmp.js'
 
-
 const routes = [
-    { path: '/missKeep', component: missKeep },
+  { path: '/missKeep', component: missKeep },
 
-    { path: '/email', component: emailApp,
-        children: [
-            { path: 'new', component: emailCompose },
-            { path: '', component: emailInbox },
-            { path: ':id', component: emailDetails }
-        ]
-    },
-    {
-        path: '/books', component: bookApp,
-        children: [
-            { path: '', component: books },
-            { path: 'add', component: bookAdd },
-            { path: ':bookId', component: bookDetails },
-        ]
-    },
-
-];
-
+  {
+    path: '/email',
+    component: emailApp,
+    children: [
+      { path: 'new/:id?', component: emailCompose },
+      { path: '', component: emailInbox },
+      { path: ':id', component: emailDetails }
+    ]
+  },
+  {
+    path: '/books',
+    component: bookApp,
+    children: [
+      { path: '', component: books },
+      { path: 'add', component: bookAdd },
+      { path: ':bookId', component: bookDetails }
+    ]
+  }
+]
 
 export const router = new VueRouter({ routes })

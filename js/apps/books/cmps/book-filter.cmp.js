@@ -1,7 +1,7 @@
-
-
 export default {
-    template: `
+  template: `
+  
+  
     <section class="book-filter">
         <h3>Filter book:</h3>
         <div class="filter-inputs">
@@ -12,14 +12,14 @@ export default {
             <input type="range" class="price-to" v-model="filterBy.toPrice" name="to" min="500" max="1000" @input="emitFilter" />
         </div>
     </section>`,
-    data() {
-        return {
-            filterBy: {title: '' , fromPrice: 0, toPrice: 500}
-        }
-    },
-    methods:{
-        emitFilter() {
-            this.$emit('set-filter', this.filterBy)
-        }
+  data() {
+    return {
+      filterBy: { title: "", fromPrice: 0, toPrice: 500 }
+    };
+  },
+  methods: {
+    emitFilter() {
+      this.$emit("set-filter", this.filterBy);
     }
-}
+  }
+};

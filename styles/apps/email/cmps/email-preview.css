@@ -1,66 +1,77 @@
 .email-preview {
-    display: flex;
-    margin: 0 auto;
-    width: 700px;
-    height: 50px;
-    align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid #c3c3c3e0;
-    font-size: 1.1rem;
-    font-weight: bold;
+  display: flex;
+  margin: 0 auto;
+  width: 700px;
+  height: 50px;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #c3c3c3e0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all .2s ease-in-out;
 }
 
-.testt{
-    display: flex;
+.email-preview a {
+  overflow: hidden;
 }
-
-
 .email-preview:hover {
-    transform: scale(1.025);
-    box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent, 0 2px 15px rgba(0, 0, 0, 0.30);
+  transform: scale(1.001); 
+  box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent,
+    0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .email-content-prev {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-right: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 30px;
+  font-weight: 900;
 }
 
+.email-subject-prev {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.email-body-prev {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .email-date-prev {
-    margin-left: auto;
-    text-align: right;
-    padding-right: 10px;
+  margin-left: auto;
+  text-align: right;
+  padding-right: 10px;
 }
 
 .email-prev-btns {
-    display: flex;
-    margin-left: auto;
-    text-align: right;
-    padding-right: 10px;
+  display: flex;
+  margin-left: auto;
+  text-align: right;
+  padding-right: 10px;
 }
 
-.email-prev-btns>* {
-    
-    opacity: 0.5;
-    display: inline-block;
-    margin-left: 8px;
-    font-size: 1.4rem;
+.email-prev-btns > * {
+  opacity: 0.5;
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 1.4rem;
 }
 
-.delete-btn-prev:hover, .read-btn-prev:hover, .reply-btn-prev:hover {
-    opacity: 1;
+.delete-btn-prev:hover,
+.read-btn-prev:hover,
+.reply-btn-prev:hover {
+  opacity: 1;
 }
 
 .email-from-prev {
-    margin-right: 30px;
+  margin-right: 30px;
 }
 
 .email-body-prev {
-    color: #0000004a;
+  color: #0000004a;
 }
 
 .read {
-    background-color: #eae8e9;
-    font-weight: normal;
+  background-color: #eae8e9;
+  font-weight: normal;
 }

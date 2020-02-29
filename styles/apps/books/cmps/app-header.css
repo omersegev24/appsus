@@ -1,24 +1,24 @@
-.main-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.page-title{
-    font-size: 2rem;
+.page-title {
+  font-size: 2rem;
 }
-.main-nav{
-    display: flex;
+.main-nav {
+  display: flex;
 }
-.main-nav>*{
-    padding: 10px;
-    text-decoration: none;
+.main-nav > * {
+  padding: 10px;
+  text-decoration: none;
 }
-.main-nav >*{
-    color: black;
+.main-nav > * {
+  color: black;
 }
-.main-nav >*:hover {
-    color: red;
-} 
+.main-nav > *:hover {
+  color: red;
+}
 .router-link-active {
-    color: red;
+  color: red;
 }

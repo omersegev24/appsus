@@ -1,8 +1,9 @@
-.email-list a{
-    text-decoration: none;
-    color: inherit;
+.email-list a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.email-list{
-    align-self: center;
+.email-list {
+  align-self: center;
+  margin-top: 0;
 }
