@@ -38,8 +38,8 @@ const notesDB = [
         info: {
             title: "How was it:",
             todos: [
-                { txt: "Do that", doneAt: null },
-                { txt: "Do this", doneAt: 187111111 }
+                { txt: "Do that", doneAt: null ,isDone: false},
+                { txt: "Do this", doneAt: 187111111, isDone: false }
             ]
         },
         style: { 
@@ -59,13 +59,27 @@ const notesDB = [
             backgroundColor: "#ffffff"
         }  
     },
+    {
+        type: "noteAudio",
+        id: utilService.makeId(),
+        isPinned: true,
+        isMark: true,
+        info: {
+            title: "How was this audio",
+            url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+        },
+        style: { 
+            backgroundColor: "#ffffff"
+        }  
+    },
 ];
 
 export const noteService = {
     getNotes,
     setNote,
     replaceNote,
-    addNewNote
+    addNewNote,
+    sendNote
 }
 
 function getNotes() {
@@ -85,7 +99,7 @@ function setNote(settings){
             markNote(settings.note)
             break;
         case 'change':
-            changeColorNote(settings.note, settings.ev)//change to select with color options
+            changeColorNote(settings.note, settings.color)//change to select with color options
             break;
         case 'edit':
             editNote(settings)
@@ -104,13 +118,13 @@ function pinNote(note){
     replaceNote(note)  
 }
 
-function  markNote(note){
+function markNote(note){
     note.isMark = !note.isMark
     replaceNote(note)
 }
 
-function changeColorNote(note, ev){
-    note.style.backgroundColor = ev.target.value;
+function changeColorNote(note, color){
+    note.style.backgroundColor = color;
     replaceNote(note);
 }
 
@@ -124,10 +138,18 @@ function editNote(settings){
         todos.forEach((todo, idx) => {
             if(!settings.note.info.todos[idx]) settings.note.info.todos[idx] = {txt: ''}
             settings.note.info.todos[idx].txt = todo
-        });
+        })
+        break;
         case 'noteImg':
+            settings.note.info.url = settings.val
+            break;
+        case 'noteAudio':
+            settings.note.info.url = settings.val
+            break;
         case 'noteVideo':
-            settings.note.info.url = settings.val//DOTO: don't working...
+            var id = _getYoutubeVidId(settings.val)
+            settings.note.info.url = `https://www.youtube.com/embed/${id}`
+            break;
     }
     replaceNote(settings.note)
 }
@@ -157,9 +179,21 @@ function addNewNote(value, type){
     var info = {}
     switch(type){
         case 'noteVideo':
+            var id = _getYoutubeVidId(value)
+            info = {
+                title: 'Video',
+                url: 'https://www.youtube.com/embed/'+ id
+            }
+            break;
         case 'noteImg':
             info = {
-                title: "Video",
+                title: "images",
+                url: value
+            }
+            break;
+        case 'noteAudio':
+            info = {
+                title: "audio",
                 url: value
             }
             break;
@@ -199,4 +233,17 @@ function addTodos(value){
         }
     })
     return todos; 
+}
+function sendNote(value){
+    console.log(value)
+    router.push({path:`/email/${value}`})
+}
+
+function _getYoutubeVidId(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    return (match && match[2].length === 11)
+      ? match[2]
+      : '';
 }

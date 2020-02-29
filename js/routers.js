@@ -1,4 +1,5 @@
-import missKeep from './apps/keep/keep-main.js'
+import missKeep from './apps/keep/pages/keep-app-cmp.js'
+
 import emailApp from './apps/email/email-app.js'
 import emailInbox from './apps/email/pages/email-inbox.cmp.js'
 import emailCompose from './apps/email/cmps/email-compose.cmp.js'

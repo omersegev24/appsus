@@ -5,11 +5,12 @@ import noteAdd from '../cmps/note-add.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
 import noteFilter from '../cmps/note-filter.cmp.js'
 
-
+import {router} from '../../../routers.js'
 
 export default{
     template:`
     <section class="keep-app">
+        <h1>MISS KEEP</h1>
         <note-add @addNewNote="addNote"></note-add>
         <note-filter @set-filter="setFilter"></note-filter>
         <note-list :notes="noteForDisplay"></note-list>
@@ -22,16 +23,15 @@ export default{
         }
     },
     created(){
+        this.sendNote()
         this.setNote()
         noteService.getNotes()
             .then(notes => this.notes = notes)
     },
     computed: {
         noteForDisplay(){
-            if (!this.filterBy) return this.notes;
-            return this.notes.filter(note => {
-                return note.title.includes(this.filterBy.title)
-            });
+            if (!this.filterBy || this.filterBy.length === 0) return this.notes;
+            return this.notes.filter(note => this.filterBy.includes(note.type))
         }
     },
     methods:{
@@ -47,6 +47,11 @@ export default{
         },
         setFilter(filterBy) {
             this.filterBy = filterBy
+        },
+        sendNote(){
+            eventBus.$on('sendEmail', (value) => {
+            router.push({path:`/email/params=${value}`})
+            })  
         },
     },
 

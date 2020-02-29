@@ -33,6 +33,7 @@ export default{
                 case 'noteTodos':
                     this.placeholder = this.getTodos()
                     break;
+                case 'noteAudio':
                 case 'noteImg':
                 case 'noteVideo':
                     this.placeholder = this.note.info.url
