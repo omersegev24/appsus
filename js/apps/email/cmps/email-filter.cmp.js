@@ -3,16 +3,20 @@ export default {
     <section class="email-filter">
         
         <div @input="emitFilter" class="email-filter-inputs">
-            <input class="search-email" v-model="filterBy.text" type="search" placeholder="Search Email"/>
-            <v-select  @input="emitFilter" v-model="filterBy.read"  class="email-select" :clearable="false"
+            <input class="search-email"  @input="emitFilter" v-model="filterBy.text" type="search" placeholder="Search Email"/>
+          
+            <v-select  @change="emitFilter" v-model="filterBy.read"  class="email-select" :clearable="false"
                       :searchable="false" 
                       :options="options"/>
             </v-select>
+
+          <button @click="setSortBy('date')" >Date</button>
+          <button @click="setSortBy('title')" >Title</button>
         </div>
     </section>`,
   data() {
     return {
-      filterBy: { text: '', read: 'All' }
+      filterBy: { text: null, read: null }
     }
   },
   computed: {
@@ -28,6 +32,9 @@ export default {
   methods: {
     emitFilter() {
       this.$emit('set-filter', this.filterBy)
+    },
+    setSortBy(sortType) {
+      this.$emit('set-sort', sortType)
     },
     get(val) {
       console.log(val)

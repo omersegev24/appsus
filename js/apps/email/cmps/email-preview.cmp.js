@@ -1,10 +1,11 @@
-import { eventBus } from "../../../services/event-bus.service.js"
+import { eventBus } from '../../../services/event-bus.service.js'
 
 export default {
   template: `    
-        <li class="email-preview" :class="isRead" @mouseover="active= true"   @mouseleave="active = false" @click="markRead(false)" >
+        <div class="email-preview" :class="isRead" @mouseover="active= true"   @mouseleave="active = false" @click="markRead(false)" >
         
                   <div class="email-content-prev" >
+                    <span @click.prevent.stop="starEmail" class="far fa-star"></span>
                       <span class="email-from-prev">{{email.from}}</span>
                       <span class="email-subject-prev"> {{email.subject}} - </span>
                       <span class="email-body-prev">{{email.body}}</span>
@@ -21,9 +22,9 @@ export default {
                  class="reply-btn-prev fas fa-reply"></router-link> 
                  
             </div>
-        </li>
+          </div>
     `,
-  props: ["email"],
+  props: ['email'],
   data() {
     return {
       active: false
@@ -35,23 +36,26 @@ export default {
     },
     readUnread() {
       return {
-        "fas fa-envelope": this.email.isRead,
-        "far fa-envelope-open": !this.email.isRead
+        'fas fa-envelope': this.email.isRead,
+        'far fa-envelope-open': !this.email.isRead
       }
     }
   },
   methods: {
+    starEmail() {
+      eventBus.$emit('starred', this.email)
+    },
     deleteEmail() {
-      eventBus.$emit("delete", this.email.id)
+      eventBus.$emit('delete', this.email.id)
     },
     markRead(isToggle) {
-      eventBus.$emit("emailClicked", {
+      eventBus.$emit('emailClicked', {
         email: this.email,
         toggleMark: isToggle
       })
     },
     emailReply() {
-      eventBus.$emit("reply")
+      eventBus.$emit('reply')
     }
   }
 }

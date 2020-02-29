@@ -1,20 +1,20 @@
-import emailPreview from "./email-preview.cmp.js";
-// @click.native="markRead(email)" 
+import emailPreview from './email-preview.cmp.js'
+// @click.native="markRead(email)"
 export default {
   template: `
         
-         <ul class="email-list">
+         <div class="email-list">
             <template v-for="email in emails">
               <router-link :to="'/email/'+email.id">  
+              
                   <email-preview :email="email"></email-preview>
               </router-link> 
             </template>
-         </ul>
+        </div>
     
     `,
-  props: ["emails"],
+  props: ['emails'],
   components: {
     emailPreview
-  }, 
-
-};
+  }
+}

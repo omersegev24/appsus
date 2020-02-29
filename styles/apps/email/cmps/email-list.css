@@ -6,4 +6,7 @@
 .email-list {
   align-self: center;
   margin-top: 0;
+  max-width: 100%;
+  /* max-width: 1080px; */
+/* width:700px; */
 }

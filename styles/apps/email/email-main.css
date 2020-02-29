@@ -5,10 +5,30 @@
 @import '/styles/apps/email/pages/email-details.css';
 @import '/styles/apps/email/pages/email-compose.css';
 
-
-.email-main {
+/* .email-main {
     display: flex;
     padding: 0px 10px;
-    width: 1020px;
+    margin:0 auto;
+    max-width: 1080px;
     font-family: roboto reg;
+} */
+
+.email-main {
+  font-family: roboto reg;
+  display: grid;
+  /* grid-template-rows: 1fr 8fr; */
+  grid-template-columns: 3fr  8fr;
+  /* max-width: 1080px; */
+}
+
+/* layout */
+
+.email-sidebar {
+    /* grid-row:1/-1; */
+    grid-column:1/2 ;
+}
+
+.email-inbox{
+    /* grid-row:2/-1; */
+    grid-column: 2/-1;
 }

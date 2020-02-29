@@ -10,15 +10,16 @@ const gEmails = [
     body:
       'sodaleSsodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum psodales suscipit tellus tincidunt mauris elits suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
+    isStarred: false,
     sentAt: 1551133930594
   },
   {
     id: 'ada31sdq',
     from: 'Daniel',
-    subject: 'you there??',
     body:
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
+    isStarred: false,
     sentAt: 1551133930594
   },
   {
@@ -28,6 +29,7 @@ const gEmails = [
     body:
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
+    isStarred: false,
     sentAt: 1551133930594
   },
   {
@@ -37,6 +39,7 @@ const gEmails = [
     body:
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
+    isStarred: false,
     sentAt: 1551133930594
   },
   {
@@ -46,6 +49,7 @@ const gEmails = [
     body:
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
+    isStarred: false,
     sentAt: 1551133930594
   },
   {
@@ -55,6 +59,7 @@ const gEmails = [
     body:
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
+    isStarred: false,
     sentAt: 1551133930594
   },
   {
@@ -64,6 +69,7 @@ const gEmails = [
     body:
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
+    isStarred: false,
     sentAt: 1551133930594
   }
 ]
@@ -74,7 +80,9 @@ export const emailService = {
   saveEmail,
   addEmail,
   updateIsRead,
-  deleteEmail
+  deleteEmail,
+  getEmailsToDisplay,
+  starEmail
 }
 
 function getEmails() {
@@ -148,5 +156,30 @@ function deleteEmail(emailId) {
   emails.splice(idx, 1)
 
   storageService.store(EMAILS_KEY, emails)
+  return Promise.resolve(idx)
+}
+
+function getEmailsToDisplay(filterBy) {
+  const emails = storageService.load(EMAILS_KEY)
+  const emailsToDisplay = emails.filter(email => {
+    if (filterBy.text) {
+      var regex = new RegExp(`${filterBy.text}`, 'i')
+      return (
+        regex.test(email.subject) ||
+        regex.test(email.body) ||
+        regex.test(email.from)
+      )
+    }
+  })
+  return Promise.resolve(emailsToDisplay)
+}
+
+function starEmail(email) {
+  const emails = storageService.load(EMAILS_KEY)
+  email.isStarred = true
+  var idx = emails.findIndex(currEmail => currEmail === email)
+  emails.splice(idx, 1, email)
+  storageService.store(EMAILS_KEY, emails)
+  
   return Promise.resolve(idx)
 }
