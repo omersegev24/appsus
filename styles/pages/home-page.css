@@ -1,7 +1,9 @@
 .home-page-container {
     text-align: center;
-    color: #ffffff;
     font-family: Roboto, sans-serif;
+}
+.home-page-container >*:not(:last-child){
+    color: #ffffff;
 }
 
 .home-books {
