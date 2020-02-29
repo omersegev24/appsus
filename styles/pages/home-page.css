@@ -1,0 +1,65 @@
+.home-page-container {
+    text-align: center;
+}
+
+.home-books {
+    width: 100%;
+    height: 500px;
+    background-image: url("/img/book.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-page-link {
+    background-color: #c7c7c5;
+    position: sticky; /* button move from top buttom*/
+    width: 150px;
+    top: 64%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 20px;
+    font-size: 1.6rem;
+    opacity: 0.6;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.home-page-link:hover {
+    box-shadow: -1px 3px 13px 2px rgba(0, 0, 0, 0.55);
+    opacity: 1;
+}
+
+/* button router link  */ 
+.home-page-container a {
+    color: black;
+    text-decoration: none;
+}
+
+.home-email {
+    width: 100%;
+    height: 500px;
+    background-image: url("/img/mail.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-note {
+    width: 100%;
+    height: 500px;
+    background-image: url("/img/note.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-page-container p {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.home-note p, .home-more p, .home-books p {
+    margin-bottom: 50px;
+}

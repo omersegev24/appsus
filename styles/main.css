@@ -1,9 +1,10 @@
 @import "./lib/vue-select.css";
 
+@import './pages/home-page.css';
+
 @import '/styles/apps/books/books-main.css';
 @import '/styles/apps/keep/main.keep.css';
 @import '/styles/apps/email/email-main.css';
-@import '/styles/helpers.css';
 
 
 

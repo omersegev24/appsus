@@ -4,7 +4,7 @@
     margin: 0 0 1.5em;
     border-radius: 2px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    width: 270px;
+    /* max-width: 250px; */
     height: fit-content;
     text-align: start;
 }
@@ -22,31 +22,29 @@
     visibility: visible;
 }
 
-.noteText p {
+/* .noteText p {
     vertical-align: baseline;
     break-inside: avoid;
-}
+} */
 
-.noteImg {
+.img-container img{
     width: 100%;
-    margin: 0;
+}
+.video-container >*{
+    width: 100%;
+}
+.audio-container{
+    width: 100%;
+    outline: none;
 }
 
-.noteTodos {
+.noteTodos{
     list-style-type: none;
     padding: 0;
 }
 
-.noteTodos>* {
+.noteTodos .todo-list {
     border-bottom: 1px solid rgb(160, 158, 161);
-}
-
-.noteVideo {
-    width: 100%;
-}
-.noteAudio {
-    width: 100%;
-    outline: none;
 }
 
 .mark {
