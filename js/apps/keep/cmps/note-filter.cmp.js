@@ -2,28 +2,35 @@
 export default {
     template: `
     <section class="note-filter">
-        <h3>Filter note:</h3>
         <div class="filter-inputs">
-            <v-select multiple v-model="filterBy" :options="['Text','Image','Video','Audio', 'List']" /> </v-select>
+            <input class="title-search" type="text" v-model="filterBy.title" placeholder="Search by title...">
+            <v-select class="filter-options" multiple v-model="filterBy.type" :options="['Text','Image','Video','Audio', 'List']" /> </v-select>
         </div>
     </section>`,
     data() {
         return {
-            filterBy: ''
+            filterBy: {
+                type: [],
+                title:''
+            },
         }
     },
-    watch:{
-        filterBy(){
-            var filters = this.filterBy.map(filter => {
-                return (filter === 'Image')? 'noteImg': (filter === 'Video')?
-                'noteVideo':(filter === 'Text')? 'noteText': (filter === 'List')?
-                'noteTodos': (filter === 'Audio')? 'noteAudio': '';
-            });
-            this.$emit('set-filter', filters)
+    watch: {
+        filterBy: {
+            handler() {
+                this.emitFilter();
+            },
+            deep: true
+        } 
+     },
+    methods:{
+        emitFilter() {
+            this.$emit('set-filter', this.filterBy)
         }
     },
     components:{
         'v-select': VueSelect.VueSelect
-    }
+    },
+    
 }
 

@@ -10,16 +10,18 @@ import {router} from '../../../routers.js'
 export default{
     template:`
     <section class="keep-app">
-        <h1>MISS KEEP</h1>
-        <note-add @addNewNote="addNote"></note-add>
+        <note-add v-if="toggleOpen" @addNewNote="addNote"></note-add>
+        <button class="toggleAdd" @click=toggleAddModel>Add new note</button>
         <note-filter @set-filter="setFilter"></note-filter>
         <note-list :notes="noteForDisplay"></note-list>
     </section>
     `,
+
     data(){
         return {
             notes: [],
-            filterBy: null,
+            filterBy: {type: [], title: null},
+            toggleOpen: false
         }
     },
     created(){
@@ -30,11 +32,22 @@ export default{
     },
     computed: {
         noteForDisplay(){
-            if (!this.filterBy || this.filterBy.length === 0) return this.notes;
-            return this.notes.filter(note => this.filterBy.includes(note.type))
+            if(!this.filterBy.type.length && !this.filterBy.title) return this.notes;
+            return this.notes.filter(note => {
+                if (this.filterBy.type.length) {
+                    if (this.filterBy.title){
+                        return this.filterBy.type.includes(note.type) &&
+                         note.info.title.toUpperCase().includes(this.filterBy.title.toUpperCase())
+                    } else return this.filterBy.type.includes(note.type)            
+                } else return note.info.title.toUpperCase().includes(this.filterBy.title.toUpperCase())        
+            })
         }
+    
     },
     methods:{
+        toggleAddModel(){
+            this.toggleOpen = !this.toggleOpen
+        },
         setNote(){
             eventBus.$on('settings', (noteSettings) => {
                 noteService.setNote(noteSettings)
@@ -45,8 +58,14 @@ export default{
         addNote(note){
             this.notes.push(note)  
         },
-        setFilter(filterBy) {
-            this.filterBy = filterBy
+        setFilter(filter) {
+            var types = filter.type.map(type => {
+                return (type === 'Image')? 'noteImg': (type === 'Video')?
+                'noteVideo':(type === 'Text')? 'noteText': (type === 'List')?
+                'noteTodos': (type === 'Audio')? 'noteAudio': '';
+            });
+            this.filterBy.type = types
+            this.filterBy.title = filter.title
         },
         sendNote(){
             eventBus.$on('sendEmail', (value) => {

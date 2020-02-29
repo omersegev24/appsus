@@ -1,7 +1,6 @@
 
 import notePreview from './note-preview.cmp.js'
 
-//TODO: fix to one note preview and render in list page
 
 export default{
     template: `

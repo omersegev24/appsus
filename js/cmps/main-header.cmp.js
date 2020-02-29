@@ -1,7 +1,7 @@
 export default{
     template:`
     <header class="main-header">
-        <div class="logo">LOGO</div>
+        <h1 class="logo">APPSUS</h1>
         <nav class="main-nav">
             <router-link to="/" exact>Home</router-link>
             <router-link to="/books">MissBook</router-link>

@@ -15,10 +15,11 @@
     border: none;
     font-size: 1rem;
     cursor: pointer;
+    opacity: 0.5;
 }
 
 .action:hover{
-    color: blue;
+    opacity: 1;
 }
 
 .color-dropdown{
@@ -27,6 +28,7 @@
     display: flex;
     left: 35px;
 }
+
 
 .color-dropdown>*{
     padding: 0em;

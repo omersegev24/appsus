@@ -11,6 +11,7 @@ const notesDB = [
         isPinned: true,
         isMark: false,
         info: {
+            title: 'my text',
             txt: "Fullstack Me Baby!" 
         },
         style: { 
@@ -23,8 +24,8 @@ const notesDB = [
         isPinned: true,
         isMark: false,
         info: {
-            url: "https://yesno.wtf/assets/yes/6-304e564038051dab8a5aa43156cdc20d.gif",
-            title: "Me playing Mi" 
+            title: "After the sprint",
+            url: "https://yesno.wtf/assets/yes/6-304e564038051dab8a5aa43156cdc20d.gif"
         },
         style: { 
             backgroundColor: "#ffffff"
@@ -36,7 +37,7 @@ const notesDB = [
         isPinned: true,
         isMark: false,
         info: {
-            title: "How was it:",
+            title: "Things to do:",
             todos: [
                 { txt: "Do that", doneAt: null ,isDone: false},
                 { txt: "Do this", doneAt: 187111111, isDone: false }
@@ -52,8 +53,9 @@ const notesDB = [
         isPinned: false,
         isMark: true,
         info: {
-            title: "How was this video",
-            url: "https://www.youtube.com/embed/2JyW4yAyTl0"
+            title: "B.B.King",
+            url: "https://www.youtube.com/embed/Y57kLy1vV1c"
+            
         },
         style: { 
             backgroundColor: "#ffffff"
@@ -65,13 +67,27 @@ const notesDB = [
         isPinned: true,
         isMark: true,
         info: {
-            title: "How was this audio",
+            title: "audio in note",
             url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
         },
         style: { 
             backgroundColor: "#ffffff"
         }  
     },
+    {
+        type: "noteImg",
+        id: utilService.makeId(),
+        isPinned: true,
+        isMark: false,
+        info: {
+            title: "yes image",
+            url: "https://yesno.wtf/assets/yes/2-5df1b403f2654fa77559af1bf2332d7a.gif"
+        },
+        style: { 
+            backgroundColor: "#ffffff"
+        } 
+    },
+    
 ];
 
 export const noteService = {
@@ -179,33 +195,34 @@ function addNewNote(value, type){
     var info = {}
     switch(type){
         case 'noteVideo':
-            var id = _getYoutubeVidId(value)
+            var id = _getYoutubeVidId(value.content)
             info = {
-                title: 'Video',
+                title: value.title,
                 url: 'https://www.youtube.com/embed/'+ id
             }
             break;
         case 'noteImg':
             info = {
-                title: "images",
-                url: value
+                title: value.title,
+                url: value.content
             }
             break;
         case 'noteAudio':
             info = {
-                title: "audio",
-                url: value
+                title: value.title,
+                url: value.content
             }
             break;
         case 'noteTodos':
             info = {
-                title: "How was it:",
-                todos: addTodos(value)
+                title: value.title,
+                todos: _addTodos(value.content)
             }
             break;
         case 'noteText':
             info = {
-                txt: value
+                title: value.title,
+                txt: value.content
             }
     }   
     var note = {
@@ -221,10 +238,10 @@ function addNewNote(value, type){
     var notes = storageService.load(NOTE_KEY);
     notes.unshift(note)
     storageService.store(NOTE_KEY, notes)
-    return note;
+    return Promise.resolve(note);
 }
 
-function addTodos(value){
+function _addTodos(value){
     var values = value.split(',')
     var todos = values.map(value => {
         return { 
@@ -234,8 +251,8 @@ function addTodos(value){
     })
     return todos; 
 }
+
 function sendNote(value){
-    console.log(value)
     router.push({path:`/email/${value}`})
 }
 
