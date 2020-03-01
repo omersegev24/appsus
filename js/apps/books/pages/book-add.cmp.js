@@ -5,7 +5,7 @@ import bookList from "../cmps/book-list.cmp.js";
 
 export default {
   template: `
-    <section class="add-book">
+    <section class="add-book-container">
         <form @submit.prevent="getGoogleBooks(value)">
         <input type="text" placeholder="Search for book..." v-model="value">
         </form>

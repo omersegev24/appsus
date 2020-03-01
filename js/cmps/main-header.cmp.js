@@ -10,6 +10,8 @@ export default {
             </div>
 
         <nav class="main-nav" :class="openMenu">
+        <router-link class="active" to="/" exact><h1 class="logo">Appsus</h1></router-link>
+        <nav class="main-nav">
             <router-link to="/" exact>Home</router-link>
             <router-link to="/books">MissBook</router-link>
             <router-link to="/email" >MisterEmail</router-link>

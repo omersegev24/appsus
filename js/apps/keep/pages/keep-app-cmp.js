@@ -56,7 +56,8 @@ export default{
             })
         },
         addNote(note){
-            this.notes.push(note)  
+            this.notes.push(note) 
+            this.toggleAddModel() 
         },
         setFilter(filter) {
             var types = filter.type.map(type => {

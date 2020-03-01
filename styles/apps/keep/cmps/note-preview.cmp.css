@@ -22,11 +22,6 @@
     visibility: visible;
 }
 
-/* .noteText p {
-    vertical-align: baseline;
-    break-inside: avoid;
-} */
-
 .img-container img{
     width: 100%;
 }
@@ -49,4 +44,10 @@
 
 .mark {
     border: 2px solid yellowgreen;
+}
+
+@media screen and (max-width: 500px){
+    .note-item-actions {
+        visibility: visible;
+    }
 }
