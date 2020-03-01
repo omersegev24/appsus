@@ -11,15 +11,15 @@
 
 @font-face {
   font-family: roboto reg;
-  src: url(/styles/fonts/Roboto-Regular.ttf);
+  src: url(fonts/Roboto-Regular.ttf);
 }
 @font-face {
   font-family: roboto bld;
-  src: url(/styles/fonts/Roboto-Bold.ttf);
+  src: url(fonts/Roboto-Bold.ttf);
 }
 @font-face {
   font-family: inco;
-  src: url(/styles/fonts/Inconsolata/Inconsolata-Regular.ttf);
+  src: url(fonts/Inconsolata/Inconsolata-Regular.ttf);
 }
 
 * {
