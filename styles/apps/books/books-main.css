@@ -1,12 +1,12 @@
-@import "/styles/apps/books/cmps/book-header.css";
-@import "/styles/apps/books/cmps/book-list.css";
-@import "/styles/apps/books/cmps/book-prev.css";
-@import "/styles/apps/books/pages/book-details.css";
-@import "/styles/apps/books/cmps/book-filter.css";
-@import "/styles/apps/books/cmps/long-text.css";
-@import "/styles/apps/books/cmps/review-add.css";
-@import "/styles/apps/books/cmps/user-msg.css";
-@import "/styles/apps/books/pages/book-add.css";
+@import "cmps/book-header.css";
+@import "cmps/book-list.css";
+@import "cmps/book-prev.css";
+@import "pages/book-details.css";
+@import "cmps/book-filter.css";
+@import "cmps/long-text.css";
+@import "cmps/review-add.css";
+@import "cmps/user-msg.css";
+@import "pages/book-add.css";
 
 * {
   box-sizing: border-box;
