@@ -55,10 +55,12 @@ export default {
         this.emails = emails
       })
     },
-    setSort(sort) {
-      if (!sort) return
-      if (sort === 'title') {
+    setSort(sortBy) {
+      if (!sortBy) return
+      if (sortBy === 'title') {
         this.emails.sort((a, b) => {
+          console.log(a.subject)
+          
           var titleA = a.subject.toUpperCase()
           var titleB = b.subject.toUpperCase()
           return titleA < titleB ? -1 : titleA > titleB ? 1 : 0

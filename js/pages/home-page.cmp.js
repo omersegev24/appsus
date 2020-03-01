@@ -5,7 +5,7 @@ export default{
             <h2> THE BEST BOOKSTORE ONLINE </h2>
             <p> Over 6 million books ready for shipment within 24 hours and 3.2 million eBooks to download now. </p>
             <router-link to="books">
-                <div class="home-page-link">Shop now</div>
+                <div class="home-page-link home-book-link">Shop now</div>
             </router-link>
         </div>
         <div class="home-email">
@@ -13,7 +13,7 @@ export default{
             <p> New customizable tabs put you back in control so 
                 that you can see what’s new at a glance and decide which emails you want to read and when.</p>
             <router-link to="email">
-                <div class="home-page-link">Shop now</div>
+                <div class="home-page-link home-email-link">Shop now</div>
             </router-link>
         </div>
         <div class="home-note">
@@ -21,7 +21,7 @@ export default{
             <p> Capture what’s on your mind. Add notes, lists, photos, and audio to Keep.
                 Everything you add to Keep syncs across your devices so your important stuff is always with you. </p>
             <router-link to="missKeep">
-                <div class="home-page-link">Shop now</div>
+                <div class="home-page-link home-keeper-link">Shop now</div>
             </router-link>
                 
         </div>

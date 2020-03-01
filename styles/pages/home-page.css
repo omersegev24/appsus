@@ -13,11 +13,11 @@
 
 .home-page-link {
     background-color: #c7c7c5;
-    position: sticky; /* button move from top buttom*/
+    /* position: absolute;
     width: 150px;
     top: 64%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     padding: 15px 20px;
     font-size: 1.6rem;
     opacity: 0.6;
@@ -26,6 +26,25 @@
     text-transform: uppercase;
 }
 
+.home-book-link{
+    position: absolute;
+    top: 64%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.home-email-link{
+    position: absolute;
+    top: 117%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+}
+.home-keeper-link{
+    position: absolute;
+    
+    bottom: -94%;
+    left: 50%;
+    transform: translate(-50%, 14%);
+}
 .home-page-link:hover {
     box-shadow: -1px 3px 13px 2px rgba(0, 0, 0, 0.55);
     opacity: 1;

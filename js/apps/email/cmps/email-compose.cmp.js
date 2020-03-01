@@ -4,11 +4,11 @@ export default {
   template: `
         <section class="email-compose">
         <div class="email-compose-header">New Message</div>
-            <form class="email-form">
+            <form class="email-form" @submit.prevent="sendEmail">
                 <input type="text" placeholder="To:"/>
-                <input type="text" class="subject-input" v-model="email.subject" placeholder="Subject"/>
+                <input type="text" class="subject-input" v-model="email.subject" placeholder="Subject" required/>
                 <textarea class="email-body-input" v-model="email.body"></textarea>
-                <button @click.prevent="sendEmail">Send</button>
+                <button>Send</button>
             </form>
         </section>
     `,

@@ -5,7 +5,7 @@ export default {
         <div @input="emitFilter" class="email-filter-inputs">
             <input class="search-email"  @input="emitFilter" v-model="filterBy.text" type="search" placeholder="Search Email"/>
           
-            <v-select  @change="emitFilter" v-model="filterBy.read"  class="email-select" :clearable="false"
+            <v-select  @input="emitFilter" v-model="filterBy.read"  class="email-select" :clearable="false"
                       :searchable="false" 
                       :options="options"/>
             </v-select>
@@ -16,7 +16,7 @@ export default {
     </section>`,
   data() {
     return {
-      filterBy: { text: null, read: null }
+      filterBy: { text: '', read: null }
     }
   },
   computed: {
@@ -31,6 +31,7 @@ export default {
   },
   methods: {
     emitFilter() {
+      console.log('ssadasdas')
       this.$emit('set-filter', this.filterBy)
     },
     setSortBy(sortType) {

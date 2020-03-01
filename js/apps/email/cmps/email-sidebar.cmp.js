@@ -9,7 +9,7 @@ export default {
                    <router-link :to="'#'">Inbox</router-link>
                 </div>
                 <div>
-            <button>starred</button>
+                <router-link :to="'#'">Starred</router-link>
                 </div>
                 <div>
                    <router-link :to="'o#'">Draft</router-link>
