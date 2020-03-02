@@ -1,11 +1,12 @@
 import { noteService } from "../services/note-service.js";
+import {eventBus} from '../../../services/event-bus.service.js';
 
 export default {
   template: `
     <section class="note-add">
       <form class="add-input" @submit="addNote">
-        <input type="text" placeholder="Enter title..." v-model="newTitle" required>
-        <input type="text" :placeholder="placeholder" v-model="noteContent" required>
+        <input ref="title" type="text" placeholder="Enter title..." v-model="newTitle" required>
+        <input ref="content" type="text" :placeholder="placeholder" v-model="noteContent" required>
         <button>Save</button>
       </form>
 
@@ -57,6 +58,9 @@ export default {
         }
     },
     addNote(){
+        this.$refs.title.value = ''
+        this.$refs.content.value = ''
+
         var value = {
           title: this.newTitle,
           content: this.noteContent
@@ -64,8 +68,21 @@ export default {
         if(!value.title || !value.content) return;
         noteService.addNewNote(value, this.addNewType)
           .then(note => {
-            this.$emit('addNewNote', note)
+              this.$emit('addNewNote', note)
+              const msg = {
+                  txt: `The note succefully add`,
+                  type: 'success'
+              }
+              eventBus.$emit('show-msg', msg);
           })
+          .catch(err => {
+              const msg = {
+                  txt: `There was a problem ${err}`,
+                  type: 'error'
+              }
+              eventBus.$emit('show-msg', msg);
+          })
+
         }
     }
 };

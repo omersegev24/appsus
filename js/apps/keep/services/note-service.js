@@ -232,7 +232,7 @@ function addNewNote(value, type = 'noteText'){
     var note = {
         type,
         id: utilService.makeId(),
-        isPinned: true,
+        isPinned: false,
         isMark: false,
         info,
         style: { 

@@ -1,13 +1,6 @@
 export default{
     template:`
     <section class="home-page-container">
-        <div class="home-books">
-            <h2> THE BEST BOOKSTORE ONLINE </h2>
-            <p> Over 6 million books ready for shipment within 24 hours and 3.2 million eBooks to download now. </p>
-            <router-link to="books">
-                <div class="home-page-link home-book-link">Shop now</div>
-            </router-link>
-        </div>
         <div class="home-email">
             <h2> Meet your new Email inbox </h2>
             <p> New customizable tabs put you back in control so 
@@ -22,8 +15,14 @@ export default{
                 Everything you add to Keep syncs across your devices so your important stuff is always with you. </p>
             <router-link to="missKeep">
                 <div class="home-page-link home-keeper-link">Check it out</div>
+            </router-link>  
+        </div>
+        <div class="home-books">
+            <h2> THE BEST BOOKSTORE ONLINE </h2>
+            <p> Over 6 million books ready for shipment within 24 hours and 3.2 million eBooks to download now. </p>
+            <router-link to="books">
+                <div class="home-page-link home-book-link">Shop now</div>
             </router-link>
-                
         </div>
         <div class="home-more">
             <h2> More Apps coming soon </h2>
