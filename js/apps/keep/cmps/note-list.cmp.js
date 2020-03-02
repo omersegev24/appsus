@@ -7,11 +7,11 @@ export default{
         <section class="note-list">
         <h1>Pinned Notes</h1>
         <div ref="noteGrid" class="note-pin-container note-grid">
-                <note-preview v-for="(note , idx) in notes" :note="note" v-if="note.isPinned"></note-preview>
+                <note-preview v-for="(note , idx) in notes" :note="note" v-if="note.isPinned" :key="note.id"></note-preview>
         </div>
         <h1>Other Notes</h1>
         <div ref="noteGrid" class="other-note-container note-grid">  
-            <note-preview v-for="(note , idx) in notes" :note="note" v-if="!note.isPinned"></note-preview>
+            <note-preview v-for="(note , idx) in notes" :note="note" v-if="!note.isPinned" :key="note.id"></note-preview>
         </div>
         </section>
     `,

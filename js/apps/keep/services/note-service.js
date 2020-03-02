@@ -171,9 +171,11 @@ function editNote(settings){
 }
 
 function cloneNote(currNote){
+    var note = currNote
     var notes = storageService.load(NOTE_KEY);
     var idx = notes.findIndex(note => note.id === currNote.id)
-    notes.splice(idx+1, 0, currNote)
+    note.id = utilService.makeId()
+    notes.splice(idx+1, 0, note)
     storageService.store(NOTE_KEY, notes)
 }
 

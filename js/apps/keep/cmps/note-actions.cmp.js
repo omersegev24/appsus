@@ -10,7 +10,7 @@ export default{
         
             <div class="fas fa-palette color-picker action">
                 <div class="color-dropdown" >
-                    <span v-for="color in colors" @click="noteChangeColor('change', $event)" :style="color"></span>
+                    <span v-for="color in colors" @click="noteChangeColor('change', $event)" :style="'background-color:' + color"></span>
                 </div>
             </div>
 
@@ -27,16 +27,16 @@ export default{
         return{
             isEdit: false,
             colors: [
-                'background-color: rgb(255, 255, 255);',
-                'background-color: rgb(255, 136, 136);',
-                'background-color: rgb(255, 204, 136);',
-                'background-color: rgb(255, 255, 136);',
-                'background-color: rgb(204, 255, 153);',
-                'background-color: rgb(170, 255, 238);',
-                'background-color: rgb(136, 221, 255);',
-                'background-color: rgb(136, 187, 255);',
-                'background-color: rgb(221, 187, 255);',
-                'background-color: rgb(221, 221, 221);',
+                'rgb(255, 255, 255);',
+                'rgb(255, 136, 136);',
+                'rgb(255, 204, 136);',
+                'rgb(255, 255, 136);',
+                'rgb(204, 255, 153);',
+                'rgb(170, 255, 238);',
+                'rgb(136, 221, 255);',
+                'rgb(136, 187, 255);',
+                'rgb(221, 187, 255);',
+                'rgb(221, 221, 221);',
             ]
         }
     },
