@@ -2,17 +2,17 @@ import { eventBus } from '../services/event-bus.service.js'
 export default {
   template: `
     <header class="main-header" >
-    <div v-show="isMenuOpen" @click="toggleMenu" class="screen"></div>
+    <div v-if="isMenuOpen" @click="toggleMenu" class="screen" :class="toggleScreen"></div>
     <router-link class="active" to="/" exact><h1 class="logo">Appsus</h1></router-link>
 
       
-        <div @click="toggleMenu" class="menu-btn" :class="toggleNav">
+        <div @click="toggleMenu" class="menu-btn" >
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
-
-        <nav class="main-nav" :class="openMenu" @click="toggleMenu">
+            <!-- @click="toggleMenu" -->
+        <nav class="main-nav" :class="openMenu">
       
   
             <router-link to="/" exact>Home</router-link>
@@ -29,12 +29,12 @@ export default {
       isMenuOpen: false
     }
   },
-  // created() {
-  //   eventBus.$on('closeMenu', () => (this.isMenuOpen = false))
-  // },
   computed: {
     toggleNav() {
       return { change: this.isMenuOpen }
+    },
+    toggleScreen() {
+      return { 'screen-open': this.isMenuOpen }
     },
     openMenu() {
       return { 'menu-open': this.isMenuOpen }

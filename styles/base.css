@@ -17,10 +17,7 @@
     box-sizing: border-box;
   }
   
-  .router-link-active {
-    text-decoration: none;
-    color: red;
-  }
+  
   
   .main-footer {
     font-family: inco;

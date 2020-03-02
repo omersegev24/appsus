@@ -9,7 +9,7 @@ new Vue({
   el: "#app",
   router,
   template: `
-        <section class="appsus-app" @click="closeMobileMenu">
+        <section class="appsus-app">
             <main-nav></main-nav>
             <user-msg></user-msg>
             <router-view></router-view>

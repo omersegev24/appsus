@@ -10,8 +10,8 @@ export default {
                       :options="options"/>
             </v-select>
 
-          <button @click="setSortBy('date')" >Date</button>
-          <button @click="setSortBy('title')" >Title</button>
+          <button class="email-filter-btn" @click="setSortBy('date')" >Date</button>
+          <button class="email-filter-btn" @click="setSortBy('title')" >Title</button>
         </div>
     </section>`,
   data() {

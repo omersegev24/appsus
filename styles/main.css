@@ -21,15 +21,13 @@
   src: url(fonts/Inconsolata/Inconsolata-Regular.ttf);
 }
 
-
+body {
+  margin: 0;
+}
 * {
   box-sizing: border-box;
 }
 
-.router-link-active {
-  text-decoration: none;
-  color: red;
-}
 
 .main-footer {
   font-family: inco;
