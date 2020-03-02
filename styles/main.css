@@ -1,13 +1,9 @@
-@import "./lib/vue-select.css";
-
+@import './lib/vue-select.css';
 @import './pages/home-page.css';
-@import "./pages/app-header.css";
-
+@import './app-header.css';
 @import '../styles/apps/books/books-main.css';
 @import '../styles/apps/keep/main.keep.css';
 @import '../styles/apps/email/email-main.css';
-
-
 
 @font-face {
   font-family: roboto reg;
@@ -22,6 +18,7 @@
   src: url(fonts/Inconsolata/Inconsolata-Regular.ttf);
 }
 
+
 * {
   box-sizing: border-box;
 }
@@ -31,6 +28,6 @@
   color: red;
 }
 
-.main-footer{
+.main-footer {
   font-family: inco;
 }
