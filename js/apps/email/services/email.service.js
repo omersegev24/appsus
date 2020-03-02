@@ -11,6 +11,8 @@ const gEmails = [
       'sodaleSsodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum psodales suscipit tellus tincidunt mauris elits suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
+    isSent:false,
+    isDraft:false,
     sentAt: 1551133930594
   },
   {
@@ -20,6 +22,8 @@ const gEmails = [
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
+    isSent:false,
+    isDraft:false,
     sentAt: 1551133930594
   },
   {
@@ -30,6 +34,8 @@ const gEmails = [
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
+    isSent:false,
+    isDraft:false,
     sentAt: 1551133930594
   },
   {
@@ -40,6 +46,8 @@ const gEmails = [
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
+    isSent:false,
+    isDraft:false,
     sentAt: 1551133930594
   },
   {
@@ -50,6 +58,8 @@ const gEmails = [
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
+    isSent:false,
+    isDraft:false,
     sentAt: 1551133930594
   },
   {
@@ -60,6 +70,8 @@ const gEmails = [
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
+    isSent:false,
+    isDraft:false,
     sentAt: 1551133930594
   },
   {
@@ -70,6 +82,8 @@ const gEmails = [
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
+    isSent:false,
+    isDraft:false,
     sentAt: 1551133930594
   }
 ]
@@ -132,6 +146,7 @@ function _createEmail(subject, body, sentAt) {
     subject: subject,
     body: body,
     isRead: false,
+    isSent:true,
     isStarred: false,
     sentAt: sentAt
   }

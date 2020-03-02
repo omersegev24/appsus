@@ -1,8 +1,11 @@
 import { emailService } from '../services/email.service.js'
+import { noteService } from '../../keep/services/note-service.js'
+
 import { eventBus } from '../../../services/event-bus.service.js'
 
 import emailFilter from '../cmps/email-filter.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
+
 
 export default {
   template: `
@@ -19,15 +22,25 @@ export default {
     return {
       emails: [],
       filterBy: null,
+      mailbox: null,
       sortBy: null
     }
   },
   computed: {
     emailsToShow() {
-      if (!this.filterBy) return this.emails
+      var mailboxEmails
+      if (!this.mailbox) {
+        mailboxEmails = this.emails
+      } else {
+        mailboxEmails = this.emails.filter(email => {
+          if (this.mailbox === 'starred') return email.isStarred
+          if (this.mailbox === 'drafts') return email.isDraft
+          if (this.mailbox === 'sent') return email.isSent
+        })
+      }
+      if (!this.filterBy) return mailboxEmails
       var regex = new RegExp(`${this.filterBy.text}`, 'i')
-
-      var filteredEmails = this.emails.filter(email => {
+      var filteredEmails = mailboxEmails.filter(email => {
         return (
           (regex.test(email.subject) ||
             regex.test(email.from) ||
@@ -39,29 +52,28 @@ export default {
             : !email.isRead)
         )
       })
-
       return filteredEmails
     }
   },
   watch: {
     '$route.params.filter'() {
-      const filter = this.$route.params.filter
-      if (filter) {
-          this.setFilter(filter)
-      }
+      const mailbox = this.$route.params.filter
+      console.log(mailbox)
+      this.setMailbox(mailbox)
     }
   },
   created() {
     this.getEmails()
     eventBus.$on('starred', email => this.starEmail(email))
     eventBus.$on('delete', emailId => this.deleteEmail(emailId))
+    eventBus.$on('saveNote',  noteContent => noteService.addNewNote(noteContent))
 
     eventBus.$on('emailClicked', currEmail => {
       emailService.updateIsRead(currEmail.email, currEmail.toggleMark)
     })
-    const filter = this.$route.params.filter
-    if (filter) {
-      this.setFilter(filter)
+    const mailbox = this.$route.params.filter
+    if (mailbox) {
+      this.setMailbox(mailbox)
     }
   },
 
@@ -105,6 +117,12 @@ export default {
     },
     setFilter(filterBy) {
       this.filterBy = filterBy
+    },
+    setMailbox(mailbox) {
+      
+        this.mailbox = mailbox
+      
     }
   }
 }
+
