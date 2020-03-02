@@ -1,5 +1,6 @@
 import {utilService} from '../../../services/util.service.js'
 import {storageService} from '../../../services/storage.service.js'
+import noteTextCmp from '../cmps/notes-type/note-text.cmp.js';
 
 
 const NOTE_KEY = 'note';
@@ -193,7 +194,7 @@ function replaceNote(currNote){
     storageService.store(NOTE_KEY, notes)
 }
 
-function addNewNote(value, type){
+function addNewNote(value, type = 'noteText'){
     var info = {}
     switch(type){
         case 'noteVideo':

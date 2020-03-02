@@ -25,7 +25,7 @@ export default{
         }
     },
     created(){
-        this.sendNote()
+        // this.sendNote()
         this.setNote()
         noteService.getNotes()
             .then(notes => this.notes = notes)
@@ -68,11 +68,11 @@ export default{
             this.filterBy.type = types
             this.filterBy.title = filter.title
         },
-        sendNote(){
-            eventBus.$on('sendEmail', (value) => {
-            router.push({path:`/email/new/params=${value}`})
-            })  
-        },
+        // sendNote(){
+        //     eventBus.$on('sendAsEmail', (value) => {
+        //     router.push({path:`/email/new/params=${value}`})
+        //     })  
+        // },
     },
 
     components:{

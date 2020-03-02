@@ -17,7 +17,7 @@ export default{
             <div @click="openCloseEdit" title="Edit note" class="far fa-edit action"></div>
             <div @click="emitNoteSettings('clone')" title="Clone note" class="fas fa-clone action"></div>
             <div @click="emitNoteSettings('remove')" title="Remove note" class="fas fa-trash-alt action"></div>
-            <div @click="sendToEmail" title="Send note" class="far fa-paper-plane action"></div>
+            <div @click="sendAsEmail" title="Send note" class="far fa-paper-plane action"></div>
         </div>
         <note-edit :note="note" v-if="isEdit" @chancel="openCloseEdit" @update="noteEdit" ></note-edit>
     </section>
@@ -57,26 +57,50 @@ export default{
             var setting = {action, note: this.note, color}
             eventBus.$emit('settings', setting)   
         },
-        sendToEmail(){
-            var value;
-            switch(this.note.type){
-                
-                case 'noteImg':
-                case 'noteVideo':
-                case 'noteAudio':
-                    value = this.note.info.url
-                    break;
-                case 'noteText':
-                    value = this.note.info.txt
-                    break;
-                case 'noteTodos':
-                    value = this.note.info.todos.map(todo => todo.txt).join(',')
-                
-            }
-            eventBus.$emit('sendEmail', value)  
-        }
+        getTodoAsTxt(todos) {
+            var todosStr = todos.map(todo => {
+                return todo.txt + '\n'
+            })
+            return todosStr
+        },
+        sendAsEmail() {
+            Swal.fire({
+                title: 'Do you want to send this note by Email?',
+                text: 'You will be moved to another page',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes'
+            }).then((result) => {
+                if (result.value) {
+                    var emailMsg = {
+                        title: '',
+                        txt: ''
+                    }
+                switch(this.note.type){
+
+                    case 'noteImg':
+                        emailMsg.txt = 'Check out that image! : ' + this.note.info.url
+                        break;
+                    case 'noteVideo':
+                        emailMsg.txt = 'Check out that video! : ' + this.note.info.url
+                        break;
+                    case 'noteAudio':
+                        emailMsg.txt = 'Check out that audio! : ' + this.note.info.url
+                        break;
+                    case 'noteText':
+                        emailMsg.txt = this.note.info.txt
+                        break;
+                    case 'noteTodos':
+                        emailMsg.txt = 'Todos : \n' + this.getTodoAsTxt(this.note.todos)
+                }
+                emailMsg.title = this.note.info.title
+                this.$router.push({ path: '../email/new/', query: { title: emailMsg.title, txt: emailMsg.txt } })
+                }
+            })
+        },
     },
-    components:{
+    components: {
         noteEdit
     }
 }
