@@ -3,6 +3,7 @@ export default {
     <header class="main-header">
     <router-link class="active" to="/" exact><h1 class="logo">Appsus</h1></router-link>
 
+      
         <div @click="toggleMenu" class="menu-btn" :class="toggleNav">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
