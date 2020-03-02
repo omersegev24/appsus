@@ -16,7 +16,7 @@ export default{
 
             <div @click="openCloseEdit" title="Edit note" class="far fa-edit action"></div>
             <div @click="emitNoteSettings('clone')" title="Clone note" class="fas fa-clone action"></div>
-            <div @click="emitNoteSettings('remove')" title="Remove note" class="fas fa-trash-alt action"></div>
+            <div @click="onDeleteNote" title="Delete note" class="fas fa-trash-alt action"></div>
             <div @click="sendAsEmail" title="Send note" class="far fa-paper-plane action"></div>
         </div>
         <note-edit :note="note" v-if="isEdit" @chancel="openCloseEdit" @update="noteEdit" ></note-edit>
@@ -41,9 +41,23 @@ export default{
         }
     },
     methods:{
-        emitNoteSettings (action) {
+        emitNoteSettings(action) {
             var setting = {action, note: this.note}
-            eventBus.$emit('settings', setting)   
+            eventBus.$emit('settings', setting) 
+        },
+        onDeleteNote(){
+            Swal.fire({
+                title: 'Are you sure you want delete this note?',
+                text: 'You will be to another page',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes'
+            }).then((result) => {
+                if (result.value) {
+                    this.emitNoteSettings('delete')
+                } 
+            })
         },
         openCloseEdit(){
             this.isEdit = !this.isEdit

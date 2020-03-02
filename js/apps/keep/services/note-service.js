@@ -124,8 +124,8 @@ function setNote(settings){
         case 'clone':
             cloneNote(settings.note)
             break;
-        case 'remove':
-            removeNote(settings.note)
+        case 'delete':
+            deleteNote(settings.note)
             break;
     }
     return Promise.resolve()
@@ -181,7 +181,7 @@ function cloneNote(currNote){
     storageService.store(NOTE_KEY, notes)
 }
 
-function removeNote(currNote){
+function deleteNote(currNote){
     var notes = storageService.load(NOTE_KEY);
     var idx = notes.findIndex(note => note.id === currNote.id)
     notes.splice(idx, 1)

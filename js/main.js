@@ -1,6 +1,7 @@
 import { router } from './routers.js';
 import mainNav from './cmps/main-header.cmp.js';
-import appFooter from './cmps/app-footer.cmp.js'
+import appFooter from './cmps/app-footer.cmp.js';
+import userMsg from './cmps/user-msg.cmp.js';
 
 new Vue({
   el: "#app",
@@ -8,11 +9,13 @@ new Vue({
   template: `
         <section class="appsus-app">
             <main-nav></main-nav>
+            <user-msg></user-msg>
             <router-view></router-view>
             <app-footer></app-footer>
         </section>`,
   components: {
     mainNav,
-    appFooter
+    appFooter,
+    userMsg
   }
 });

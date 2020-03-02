@@ -45,13 +45,26 @@ export default{
         setNote(){
             eventBus.$on('settings', (noteSettings) => {
                 noteService.setNote(noteSettings)
+                .then(() => {
+                    const msg = {
+                        txt: `The note succefully ${noteSettings.action}`,
+                        type: 'success'
+                    }
+                    eventBus.$emit('show-msg', msg);
+                })
+                .catch(err => {
+                    const msg = {
+                        txt: `There was a problem ${err}`,
+                        type: 'error'
+                    }
+                    eventBus.$emit('show-msg', msg);
+                })
                 noteService.getNotes()
                     .then(notes => this.notes = notes)
             })
         },
         addNote(note){
             this.notes.push(note) 
-            this.toggleAddModel() 
         },
         setFilter(filter) {
             var types = filter.type.map(type => {
