@@ -116,7 +116,7 @@ function setNote(settings){
             markNote(settings.note)
             break;
         case 'change':
-            changeColorNote(settings.note, settings.color)//change to select with color options
+            changeColorNote(settings.note, settings.color)
             break;
         case 'edit':
             editNote(settings)
@@ -128,6 +128,7 @@ function setNote(settings){
             removeNote(settings.note)
             break;
     }
+    return Promise.resolve()
 }
 
 function pinNote(note){

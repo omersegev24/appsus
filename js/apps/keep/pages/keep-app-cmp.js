@@ -5,13 +5,11 @@ import noteAdd from '../cmps/note-add.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
 import noteFilter from '../cmps/note-filter.cmp.js'
 
-import {router} from '../../../routers.js'
 
 export default{
     template:`
     <section class="keep-app">
-        <note-add v-if="toggleOpen" @addNewNote="addNote"></note-add>
-        <button class="toggleAdd" @click=toggleAddModel>Add new note</button>
+        <note-add @addNewNote="addNote"></note-add>
         <note-filter @set-filter="setFilter"></note-filter>
         <note-list :notes="noteForDisplay"></note-list>
     </section>
@@ -25,7 +23,6 @@ export default{
         }
     },
     created(){
-        // this.sendNote()
         this.setNote()
         noteService.getNotes()
             .then(notes => this.notes = notes)
@@ -45,9 +42,6 @@ export default{
     
     },
     methods:{
-        toggleAddModel(){
-            this.toggleOpen = !this.toggleOpen
-        },
         setNote(){
             eventBus.$on('settings', (noteSettings) => {
                 noteService.setNote(noteSettings)
@@ -68,11 +62,6 @@ export default{
             this.filterBy.type = types
             this.filterBy.title = filter.title
         },
-        // sendNote(){
-        //     eventBus.$on('sendAsEmail', (value) => {
-        //     router.push({path:`/email/new/params=${value}`})
-        //     })  
-        // },
     },
 
     components:{
