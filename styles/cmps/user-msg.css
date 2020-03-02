@@ -1,8 +1,15 @@
+.user-msg {
+    background-color: black;
+    color: white;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+}
 
 .success {
-    color: red;
+    background-color: rgb(61, 61, 253);
 }
 
 .error {
-    color: blue;
+    background-color: red;
 }

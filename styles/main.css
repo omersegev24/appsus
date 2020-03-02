@@ -1,8 +1,9 @@
-@import './lib/vue-select.css';
-@import './base.css';
-@import './pages/home-page.css';
-@import './pages/app-header.css';
-@import '../styles/apps/books/books-main.css';
-@import '../styles/apps/keep/main.keep.css';
-@import '../styles/apps/email/email-main.css';
+@import 'lib/vue-select.css';
+@import 'base.css';
+@import 'pages/home-page.css';
+@import 'pages/app-header.css';
+@import 'apps/books/books-main.css';
+@import 'apps/keep/main.keep.css';
+@import 'apps/email/email-main.css';
+@import 'cmps/user-msg.css'
 
