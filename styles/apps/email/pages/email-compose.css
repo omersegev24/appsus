@@ -8,10 +8,9 @@
   flex-direction: column;
 }
 
-
-.email-compose input[type=text]{
-    padding:1em;
-} 
+.email-compose input[type='text'] {
+  padding: 1em;
+}
 
 .email-body-input {
   resize: none;
@@ -22,16 +21,36 @@
 .email-compose-header {
   background-color: #52616b;
   color: white;
-  padding: 0.6250em;
+  padding: 0.625em;
 }
-.compose-send-btn {
-  align-self: flex-start;
+/* .compose-send-btn,
+.compose-draft-btn {
   background-color: #52616b;
+  border-radius: 10px;
   color: white;
   font-size: 1.225rem;
   padding: 0.5em;
   text-shadow: 0px -1px 0px rgba(30, 30, 30, 0.8);
-  border-radius: 10px;
   width: 5rem;
+} */
+.compose-btns>* {
+  background-color: #52616b;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.225rem;
+  padding: 0.5em;
+  text-shadow: 0px -1px 0px rgba(30, 30, 30, 0.8);
+  width: 5rem;
+}
+.compose-btns{
+  display: flex;
+  justify-content: space-between;
+}
+.compose-send-btn {
+  align-self: flex-start;
   margin: 0 0 1rem 1rem;
+}
+.compose-draft-btn {
+  align-self: flex-end;
+  margin: 0 1rem 1rem 0;
 }
