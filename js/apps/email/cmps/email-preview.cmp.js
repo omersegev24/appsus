@@ -16,6 +16,7 @@ export default {
             <div v-if="active" class="email-prev-btns">
                 <div @click.prevent.stop="deleteEmail" class="delete-btn-prev fas fa-trash-alt"></div>
                 <div @click.prevent.stop="markRead(true)" class="read-btn-prev" :class="readUnread"></div>
+                <div @click.prevent.stop="saveAsNote()" class="">a</div>
 
                 <router-link :to="'/email/new/'+email.id"
                 @click.prevent.stop="emailReply"
@@ -59,6 +60,11 @@ export default {
     },
     emailReply() {
       eventBus.$emit('reply')
+    },
+    saveAsNote(){
+      const note = {title:this.email.subject, content:this.email.body}
+      eventBus.$emit('saveNote',note)
+      this.$router.push('/missKeep')
     }
   }
 }

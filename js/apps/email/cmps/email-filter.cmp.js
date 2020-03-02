@@ -16,7 +16,7 @@ export default {
     </section>`,
   data() {
     return {
-      filterBy: { text: '', read: 'All', mailbox: null }
+      filterBy: { text: '', read: 'All'}
     }
   },
   computed: {
@@ -24,27 +24,27 @@ export default {
       return ['All', 'Read', 'Unread']
     }
   },
-  created(){
-    const filter = this.$route.params.filter
-    if (filter) {
-      this.filterBy.mailbox = filter
-    } else {
-      this.filterBy.mailbox = null
-    }
-    this.$emit('set-filter', this.filterBy)
-  },
+  // created(){
+  //   const filter = this.$route.params.filter
+  //   if (filter) {
+  //     this.filterBy.mailbox = filter
+  //   } else {
+  //     this.filterBy.mailbox = null
+  //   }
+  //   this.$emit('set-filter', this.filterBy)
+  // },
   
-  watch: {
-    '$route.params.filter'() {
-      const filter = this.$route.params.filter
-      if (filter) {
-        this.filterBy.mailbox = filter
-      } else {
-        this.filterBy.mailbox = null
-      }
-      this.$emit('set-filter', this.filterBy)
-    }
-  },
+  // watch: {
+  //   '$route.params.filter'() {
+  //     const filter = this.$route.params.filter
+  //     if (filter) {
+  //       this.filterBy.mailbox = filter
+  //     } else {
+  //       this.filterBy.mailbox = null
+  //     }
+  //     this.$emit('set-filter', this.filterBy)
+  //   }
+  // },
   methods: {
     emitFilter() {
       this.$emit('set-filter', this.filterBy)

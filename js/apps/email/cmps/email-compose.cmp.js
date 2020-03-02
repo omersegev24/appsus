@@ -29,7 +29,6 @@ export default {
     loadEmail() {
 
       const emailId = this.$route.params.id
-      console.log(emailId)
       if (emailId) {
         emailService.getEmailById(emailId).then(email => {
           const emailCopy = JSON.parse(JSON.stringify(email))
