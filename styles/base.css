@@ -19,7 +19,7 @@
   
   .router-link-active {
     text-decoration: none;
-    color: red;
+    color: rgb(56, 56, 255);
   }
   
   .main-footer {

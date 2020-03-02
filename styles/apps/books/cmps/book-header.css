@@ -3,7 +3,6 @@
   justify-content: flex-end;
   text-transform: uppercase;
   align-items: center;
-  font-family:inco;
 }
 .book-main-header>*{
   text-decoration: none;
@@ -23,5 +22,5 @@
 }
 
 .book-nav>*:hover {
-  color: red;
+  color: rgb(56, 56, 255);;
 }

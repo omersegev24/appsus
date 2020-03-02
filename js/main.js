@@ -1,4 +1,6 @@
 import { router } from './routers.js';
+
+import { eventBus } from './services/event-bus.service.js'
 import mainNav from './cmps/main-header.cmp.js';
 import appFooter from './cmps/app-footer.cmp.js';
 import userMsg from './cmps/user-msg.cmp.js';
