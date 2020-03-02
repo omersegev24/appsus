@@ -47,16 +47,22 @@ export default{
         },
         onDeleteNote(){
             Swal.fire({
-                title: 'Are you sure you want delete this note?',
-                text: 'You will be to another page',
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes'
+                confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.value) {
                     this.emitNoteSettings('delete')
-                } 
+                    Swal.fire(
+                        'Deleted!',
+                        'Your note has been deleted.',
+                        'success'
+                    )
+                }
             })
         },
         openCloseEdit(){

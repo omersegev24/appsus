@@ -1,36 +1,8 @@
-@import "./lib/vue-select.css";
-
+@import './lib/vue-select.css';
+@import './base.css';
 @import './pages/home-page.css';
-@import "./pages/app-header.css";
-
+@import './pages/app-header.css';
 @import '../styles/apps/books/books-main.css';
 @import '../styles/apps/keep/main.keep.css';
 @import '../styles/apps/email/email-main.css';
 
-
-
-@font-face {
-  font-family: roboto reg;
-  src: url(fonts/Roboto-Regular.ttf);
-}
-@font-face {
-  font-family: roboto bld;
-  src: url(fonts/Roboto-Bold.ttf);
-}
-@font-face {
-  font-family: inco;
-  src: url(fonts/Inconsolata/Inconsolata-Regular.ttf);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.router-link-active {
-  text-decoration: none;
-  color: red;
-}
-
-.main-footer{
-  font-family: inco;
-}

@@ -51,7 +51,25 @@ export default {
       eventBus.$emit('starred', this.email)
     },
     deleteEmail() {
-      eventBus.$emit('delete', this.email.id)
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.value) {
+            eventBus.$emit('delete', this.email.id)
+            Swal.fire(
+                'Deleted!',
+                'Your email has been deleted.',
+                'success'
+            )
+        }
+    })
+     
     },
     markRead(isToggle) {
       eventBus.$emit('emailClicked', {
@@ -63,9 +81,20 @@ export default {
       eventBus.$emit('reply')
     },
     saveAsNote(){
-      const note = {title:this.email.subject, content:this.email.body}
-      eventBus.$emit('saveNote',note)
-      this.$router.push('/missKeep')
+      Swal.fire({
+        title: 'Are you sure you want save this email as note?',
+        text: 'You will be to another page',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.value) {
+            const note = {title:this.email.subject, content:this.email.body}
+            eventBus.$emit('saveNote',note)
+            this.$router.push('/missKeep')
+        } 
+      })
     }
   }
 }
