@@ -7,13 +7,13 @@ export default {
     <router-link class="active" to="/" exact><h1 class="logo">Apps<span>u</span>s</h1></router-link>
 
       
-        <div @click="toggleMenu" class="menu-btn" :class="toggleNav">
+        <div @click="toggleMenu" class="menu-btn" >
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
-
-        <nav class="main-nav" :class="openMenu" @click="toggleMenu">
+            <!-- @click="toggleMenu" -->
+        <nav class="main-nav" :class="openMenu">
       
   
             <router-link to="/" exact>Home</router-link>
@@ -30,12 +30,12 @@ export default {
       isMenuOpen: false
     }
   },
-  // created() {
-  //   eventBus.$on('closeMenu', () => (this.isMenuOpen = false))
-  // },
   computed: {
     toggleNav() {
       return { change: this.isMenuOpen }
+    },
+    toggleScreen() {
+      return { 'screen-open': this.isMenuOpen }
     },
     openMenu() {
       return { 'menu-open': this.isMenuOpen }

@@ -9,6 +9,9 @@
 
 .main-header>* {
   text-decoration: none;
+  padding: 1.5rem;
+  /* background-color: #52616b; */
+  /* margin-bottom: 2em; */
 }
 
 .screen {
@@ -20,8 +23,12 @@
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   opacity: 0;
+  visibility: hidden;
 }
 
+.screen-open {
+  visibility: visible;
+}
 .page-title {
   font-size: 2rem;
 }
@@ -94,11 +101,12 @@
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0);
     min-width: 230px;
     opacity: 0;
-    transform: translate(-2%, 67%);
-    width: 100vw;
+    transform: translate(-10%, 67%);
+    width: 100%;
     display: none;
   }
-  .main-nav>a {
+
+  .main-nav > a {
     font-size: 1.3rem;
     border-bottom: 1px solid #7979793b;
     padding: 0.8rem 0;
