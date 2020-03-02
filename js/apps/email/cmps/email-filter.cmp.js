@@ -16,7 +16,7 @@ export default {
     </section>`,
   data() {
     return {
-      filterBy: { text: '', read: null }
+      filterBy: { text: '', read: 'All', mailbox: null }
     }
   },
   computed: {
@@ -24,14 +24,29 @@ export default {
       return ['All', 'Read', 'Unread']
     }
   },
+  created(){
+    const filter = this.$route.params.filter
+    if (filter) {
+      this.filterBy.mailbox = filter
+    } else {
+      this.filterBy.mailbox = null
+    }
+    this.$emit('set-filter', this.filterBy)
+  },
+  
   watch: {
-    filterBy() {
-      // console.log(this.filterBy)
+    '$route.params.filter'() {
+      const filter = this.$route.params.filter
+      if (filter) {
+        this.filterBy.mailbox = filter
+      } else {
+        this.filterBy.mailbox = null
+      }
+      this.$emit('set-filter', this.filterBy)
     }
   },
   methods: {
     emitFilter() {
-      console.log('ssadasdas')
       this.$emit('set-filter', this.filterBy)
     },
     setSortBy(sortType) {

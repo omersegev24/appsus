@@ -8,7 +8,7 @@ export default {
                 <input type="text" placeholder="To:"/>
                 <input type="text" class="subject-input" v-model="email.subject" placeholder="Subject" required/>
                 <textarea class="email-body-input" v-model="email.body"></textarea>
-                <button>Send</button>
+                <button class="compose-send-btn">Send</button>
             </form>
         </section>
     `,
@@ -21,14 +21,15 @@ export default {
     this.loadEmail()
   },
   methods: {
-    /* .addEmail(this.email.subject, this.email.body, Date.now())*/
     sendEmail() {
       emailService.saveEmail(this.email).then(() => {
-        this.$router.push('/email')
+        this.$router.push('/email/list')
       })
     },
     loadEmail() {
+
       const emailId = this.$route.params.id
+      console.log(emailId)
       if (emailId) {
         emailService.getEmailById(emailId).then(email => {
           const emailCopy = JSON.parse(JSON.stringify(email))

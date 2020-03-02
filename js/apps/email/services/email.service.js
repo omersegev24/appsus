@@ -176,10 +176,11 @@ function getEmailsToDisplay(filterBy) {
 
 function starEmail(email) {
   const emails = storageService.load(EMAILS_KEY)
-  email.isStarred = true
-  var idx = emails.findIndex(currEmail => currEmail === email)
+  const idx = emails.findIndex(currEmail => currEmail.id === email.id)
+  console.log(email.isStarred)
+  email.isStarred = !email.isStarred
   emails.splice(idx, 1, email)
   storageService.store(EMAILS_KEY, emails)
-  
-  return Promise.resolve(idx)
+
+  return Promise.resolve('isStarred updated')
 }

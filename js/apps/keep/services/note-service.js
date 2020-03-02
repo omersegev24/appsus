@@ -253,7 +253,7 @@ function _addTodos(value){
 }
 
 function sendNote(value){
-    router.push({path:`/email/${value}`})
+    router.push({path:`/email/new/${value}`})
 }
 
 function _getYoutubeVidId(url) {

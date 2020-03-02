@@ -1,21 +1,12 @@
 export default {
   template: `
         
-          <div class="email-sidebar">
-               <div> 
-                    <router-link class="newEmail-link" :to="'/email/new'">New Email</router-link>    
-               </div>   
-               <div>
-                   <router-link :to="'#'">Inbox</router-link>
-                </div>
-                <div>
-                <router-link :to="'#'">Starred</router-link>
-                </div>
-                <div>
-                   <router-link :to="'o#'">Draft</router-link>
-                </div>
-            </div>   
-        </section>
-    `,
-
+        <section class="email-sidebar">    
+             <router-link class="newEmail-link" :to="'/email/new'" exact>New Email</router-link>    
+             <router-link :to="'/email/list'" exact>Inbox</router-link>
+             <router-link :to="'/email/list/'+'starred'">Starred</router-link>
+         </section>   
+        
+    `
 }
+

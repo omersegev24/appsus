@@ -8,6 +8,7 @@
   /* font-weight: bold; */
   transition: all 0.2s ease-in-out;
   overflow: hidden;
+  background-color: #f0f5f9;
 }
 
 .email-preview a {
@@ -72,6 +73,6 @@
 }
 
 .read {
-  background-color: #eae8e9;
+  background-color: white;
   font-weight: normal;
 }

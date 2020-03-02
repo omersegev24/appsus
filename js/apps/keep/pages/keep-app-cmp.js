@@ -70,7 +70,7 @@ export default{
         },
         sendNote(){
             eventBus.$on('sendEmail', (value) => {
-            router.push({path:`/email/params=${value}`})
+            router.push({path:`/email/new/params=${value}`})
             })  
         },
     },

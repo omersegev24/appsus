@@ -21,8 +21,8 @@ const routes = [
 
   { path: '/email', component: emailApp,
     children: [
+      { path: 'list/:filter?', component: emailInbox },
       { path: 'new/:id?', component: emailCompose },
-      { path: '', component: emailInbox },
       { path: ':id', component: emailDetails }
     ]
   },
@@ -38,3 +38,13 @@ const routes = [
 ]
 
 export const router = new VueRouter({ routes })
+
+
+
+// :to="'email/'+email.id"     // does not know if param is id or filter
+// to="email/1223455"
+
+// :to="'email/list/'+email.id" // knows it is a filter
+// to="email/list/1223455"
+
+//  '/email/ghjghjgfyjjyg9876'

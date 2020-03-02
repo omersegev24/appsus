@@ -5,13 +5,13 @@ export default {
         <div class="email-preview" :class="isRead" @mouseover="active= true"   @mouseleave="active = false" @click="markRead(false)" >
         
                   <div class="email-content-prev" >
-                    <span @click.prevent.stop="starEmail" class="far fa-star"></span>
+                    <span @click.prevent.stop="starEmail" class="far fa-star" :class="isStarred"></span>
                       <span class="email-from-prev">{{email.from}}</span>
                       <span class="email-subject-prev"> {{email.subject}} - </span>
                       <span class="email-body-prev">{{email.body}}</span>
                     </div>
         
-                  <span v-if="!active" class="email-date-prev">{{email.sentAt}}</span>
+                  <span v-if="!active" class="email-date-prev">{{formattedDate}}</span>
             
             <div v-if="active" class="email-prev-btns">
                 <div @click.prevent.stop="deleteEmail" class="delete-btn-prev fas fa-trash-alt"></div>
@@ -35,10 +35,13 @@ export default {
       return { read: this.email.isRead }
     },
     readUnread() {
-      return {
-        'fas fa-envelope': this.email.isRead,
-        'far fa-envelope-open': !this.email.isRead
-      }
+      return this.email.isRead ? 'fas fa-envelope' : 'far fa-envelope-open'
+    },
+    isStarred() {
+      return this.email.isStarred ? 'fas fa-star' : 'far fa-star'
+    },
+    formattedDate() {
+      return moment(this.email.sentAt).calendar()
     }
   },
   methods: {
@@ -59,29 +62,3 @@ export default {
     }
   }
 }
-
-// props: ["emails"],
-//   components: {
-//     emailPreview
-//   },
-//   data() {
-//     return {
-//       active: false
-//     };
-//   },
-//   computed: {},
-//   methods: {
-//     markRead(email) {
-//       this.$emit("emailClicked", email);
-//     },
-//     deleteEmail(email) {
-//       this.$emit("deleteClicked", email);
-//     },
-//     readUnread(email) {
-//       return {
-//         "fas fa-envelope": email.isRead,
-//         "far fa-envelope-open": !email.isRead
-//       };
-//     }
-//   }
-// };

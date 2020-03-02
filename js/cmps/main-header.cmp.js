@@ -1,7 +1,7 @@
 export default {
   template: `
     <header class="main-header">
-        <h1 class="logo">APPSUS</h1>
+    <router-link class="active" to="/" exact><h1 class="logo">Appsus</h1></router-link>
 
         <div @click="toggleMenu" class="menu-btn" :class="toggleNav">
                 <div class="bar1"></div>
@@ -10,11 +10,11 @@ export default {
             </div>
 
         <nav class="main-nav" :class="openMenu">
-        <router-link class="active" to="/" exact><h1 class="logo">Appsus</h1></router-link>
-        <nav class="main-nav">
+      
+  
             <router-link to="/" exact>Home</router-link>
             <router-link to="/books">MissBook</router-link>
-            <router-link to="/email" >MisterEmail</router-link>
+            <router-link to="/email/list" >MisterEmail</router-link>
             <router-link to="/missKeep">MissKeep</router-link>
             <router-link to="/about">About</router-link>
            
