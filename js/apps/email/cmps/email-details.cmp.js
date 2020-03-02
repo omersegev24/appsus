@@ -4,7 +4,7 @@ export default {
     template: `
         <section class="email-details" v-if="currEmail">
             <div class="email-det-subject">{{currEmail.subject}}</div>
-            <div class="from-det">From: {{currEmail.from}} <span>{{currEmail.sentAt}}</span></div>
+            <div class="from-det">From: {{currEmail.from}} <span>{{formattedDate}}</span></div>
             <div class="email-body-det">{{currEmail.body}}</div>
             
         </section>
@@ -13,6 +13,10 @@ export default {
         return {
             currEmail: null,
         }
+    },computed:{
+        formattedDate() {
+            return moment(this.currEmail.sentAt).calendar()
+          }
     },
     created() {
         this.getCurrEmail()

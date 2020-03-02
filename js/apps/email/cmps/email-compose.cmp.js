@@ -8,7 +8,10 @@ export default {
                 <input type="text" placeholder="To:"/>
                 <input type="text" class="subject-input" v-model="email.subject" placeholder="Subject" required/>
                 <textarea class="email-body-input" v-model="email.body"></textarea>
+                <div class="compose-btns">
                 <button class="compose-send-btn">Send</button>
+                <button @click.prevent="saveDraft" class="compose-draft-btn">Draft</button>
+                </div>
             </form>
         </section>
     `,
@@ -19,15 +22,25 @@ export default {
   },
   created() {
     this.loadEmail()
+    this.loadNote()
   },
   methods: {
     sendEmail() {
-      emailService.saveEmail(this.email).then(() => {
+      emailService.saveEmail(this.email, true).then(() => {
         this.$router.push('/email/list')
       })
     },
+    saveDraft() {
+      emailService.saveEmail(this.email, false).then(() => {
+        this.$router.push('/email/list/draft')
+      })
+    },
+    loadNote() {
+      const loadedNote = this.$route.query
+      this.email.subject = loadedNote.title
+      this.email.body = loadedNote.txt
+    },
     loadEmail() {
-
       const emailId = this.$route.params.id
       if (emailId) {
         emailService.getEmailById(emailId).then(email => {

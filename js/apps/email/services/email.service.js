@@ -11,8 +11,8 @@ const gEmails = [
       'sodaleSsodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum psodales suscipit tellus tincidunt mauris elits suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
-    isSent:false,
-    isDraft:false,
+    isSent: false,
+    isDraft: false,
     sentAt: 1551133930594
   },
   {
@@ -22,8 +22,8 @@ const gEmails = [
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
-    isSent:false,
-    isDraft:false,
+    isSent: false,
+    isDraft: false,
     sentAt: 1551133930594
   },
   {
@@ -34,8 +34,8 @@ const gEmails = [
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
-    isSent:false,
-    isDraft:false,
+    isSent: false,
+    isDraft: false,
     sentAt: 1551133930594
   },
   {
@@ -46,8 +46,8 @@ const gEmails = [
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
-    isSent:false,
-    isDraft:false,
+    isSent: false,
+    isDraft: false,
     sentAt: 1551133930594
   },
   {
@@ -58,8 +58,8 @@ const gEmails = [
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
-    isSent:false,
-    isDraft:false,
+    isSent: false,
+    isDraft: false,
     sentAt: 1551133930594
   },
   {
@@ -70,8 +70,8 @@ const gEmails = [
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
-    isSent:false,
-    isDraft:false,
+    isSent: false,
+    isDraft: false,
     sentAt: 1551133930594
   },
   {
@@ -82,8 +82,8 @@ const gEmails = [
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
     isStarred: false,
-    isSent:false,
-    isDraft:false,
+    isSent: false,
+    isDraft: false,
     sentAt: 1551133930594
   }
 ]
@@ -114,11 +114,11 @@ function getEmailById(id) {
   return Promise.resolve(email)
 }
 
-function saveEmail(email) {
+function saveEmail(email, isSent) {
   if (email.id) {
     return _updateEmail(email)
   } else {
-    return addEmail(email)
+    return addEmail(email, isSent)
   }
 }
 
@@ -130,23 +130,24 @@ function _updateEmail(email) {
   return Promise.resolve(email)
 }
 
-function addEmail(email) {
+function addEmail(email, isSent) {
   var emails = storageService.load(EMAILS_KEY)
   const sentAt = Date.now()
-  var newEmail = _createEmail(email.subject, email.body, sentAt)
+  var newEmail = _createEmail(email.subject, email.body, sentAt, isSent)
   emails.unshift(newEmail)
   storageService.store(EMAILS_KEY, emails)
   return Promise.resolve(newEmail)
 }
 
-function _createEmail(subject, body, sentAt) {
+function _createEmail(subject, body, sentAt, isSent) {
   const email = {
     id: utilService.makeId(),
     from: 'Daniel',
     subject: subject,
     body: body,
     isRead: false,
-    isSent:true,
+    isSent: isSent,
+    isDraft: !isSent,
     isStarred: false,
     sentAt: sentAt
   }
@@ -161,7 +162,8 @@ function updateIsRead(email, toggleMark) {
   } else email.isRead = true
   emails.splice(idx, 1, email)
   storageService.store(EMAILS_KEY, emails)
-  return Promise.resolve('isRead updated')
+  console.log(email)
+  Promise.resolve(email)
 }
 
 function deleteEmail(emailId) {
@@ -192,10 +194,9 @@ function getEmailsToDisplay(filterBy) {
 function starEmail(email) {
   const emails = storageService.load(EMAILS_KEY)
   const idx = emails.findIndex(currEmail => currEmail.id === email.id)
-  console.log(email.isStarred)
+
   email.isStarred = !email.isStarred
   emails.splice(idx, 1, email)
   storageService.store(EMAILS_KEY, emails)
-
   return Promise.resolve('isStarred updated')
 }

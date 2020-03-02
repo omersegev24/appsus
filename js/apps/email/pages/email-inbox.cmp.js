@@ -6,7 +6,6 @@ import { eventBus } from '../../../services/event-bus.service.js'
 import emailFilter from '../cmps/email-filter.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
 
-
 export default {
   template: `
           <section class="email-inbox">
@@ -23,18 +22,19 @@ export default {
       emails: [],
       filterBy: null,
       mailbox: null,
-      sortBy: null
+      sortBy: null,
+      unReadCounter: 1
     }
   },
   computed: {
     emailsToShow() {
       var mailboxEmails
       if (!this.mailbox) {
-        mailboxEmails = this.emails
+        mailboxEmails = this.emails.filter(email => !email.isDraft)
       } else {
         mailboxEmails = this.emails.filter(email => {
           if (this.mailbox === 'starred') return email.isStarred
-          if (this.mailbox === 'drafts') return email.isDraft
+          if (this.mailbox === 'draft') return email.isDraft
           if (this.mailbox === 'sent') return email.isSent
         })
       }
@@ -58,7 +58,6 @@ export default {
   watch: {
     '$route.params.filter'() {
       const mailbox = this.$route.params.filter
-      console.log(mailbox)
       this.setMailbox(mailbox)
     }
   },
@@ -66,10 +65,11 @@ export default {
     this.getEmails()
     eventBus.$on('starred', email => this.starEmail(email))
     eventBus.$on('delete', emailId => this.deleteEmail(emailId))
-    eventBus.$on('saveNote',  noteContent => noteService.addNewNote(noteContent))
+    eventBus.$on('saveNote', noteContent => noteService.addNewNote(noteContent))
 
     eventBus.$on('emailClicked', currEmail => {
       emailService.updateIsRead(currEmail.email, currEmail.toggleMark)
+        
     })
     const mailbox = this.$route.params.filter
     if (mailbox) {
@@ -92,8 +92,6 @@ export default {
       if (!sortBy) return
       if (sortBy === 'title') {
         this.emails.sort((a, b) => {
-          console.log(a.subject)
-
           var titleA = a.subject.toUpperCase()
           var titleB = b.subject.toUpperCase()
           return titleA < titleB ? -1 : titleA > titleB ? 1 : 0
@@ -105,7 +103,10 @@ export default {
       }
     },
     markRead(email) {
-      emailService.updateIsRead(email)
+      console.log('yes')
+      emailService
+        // .updateIsRead(email)
+        // .then(diff => (console.log('then',diff)))
     },
     deleteEmail(emailId) {
       emailService.deleteEmail(emailId).then(idx => {
@@ -119,10 +120,7 @@ export default {
       this.filterBy = filterBy
     },
     setMailbox(mailbox) {
-      
-        this.mailbox = mailbox
-      
+      this.mailbox = mailbox
     }
   }
 }
-

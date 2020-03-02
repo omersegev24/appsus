@@ -16,7 +16,7 @@ export default {
             <div v-if="active" class="email-prev-btns">
                 <div @click.prevent.stop="deleteEmail" class="delete-btn-prev fas fa-trash-alt"></div>
                 <div @click.prevent.stop="markRead(true)" class="read-btn-prev" :class="readUnread"></div>
-                <div @click.prevent.stop="saveAsNote()" class="">a</div>
+                <div @click.prevent.stop="saveAsNote()" class="fas fa-share-alt"></div>
 
                 <router-link :to="'/email/new/'+email.id"
                 @click.prevent.stop="emailReply"
@@ -28,7 +28,8 @@ export default {
   props: ['email'],
   data() {
     return {
-      active: false
+      active: false,
+      
     }
   },
   computed: {
