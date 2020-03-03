@@ -80,6 +80,7 @@
 
 @media (max-width: 740px){
   .email-preview  {
+    width:100vw;
     font-size: 0.9rem;
   }
 }
