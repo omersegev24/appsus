@@ -102,12 +102,7 @@ export default {
         })
       }
     },
-    markRead(email) {
-      console.log('yes')
-      emailService
-        // .updateIsRead(email)
-        // .then(diff => (console.log('then',diff)))
-    },
+
     deleteEmail(emailId) {
       emailService.deleteEmail(emailId).then(idx => {
         this.emails.splice(idx, 1)
