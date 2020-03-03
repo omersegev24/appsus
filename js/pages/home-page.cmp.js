@@ -15,7 +15,7 @@ export default {
             <h2> Meet your new Email inbox </h2>
             <p> New customizable tabs put you back in control so 
                 that you can see what’s new at a glance and decide which emails you want to read and when.</p>
-            <router-link to="email" class="home-page-link home-email-link">
+        <router-link to="email/list" class="home-page-link home-email-link">
                 Check it out
             </router-link>  
         </div>

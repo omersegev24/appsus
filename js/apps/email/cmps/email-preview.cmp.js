@@ -2,7 +2,7 @@ import { eventBus } from '../../../services/event-bus.service.js'
 
 export default {
   template: `    
-        <div class="email-preview" :class="isRead" @mouseover="active= true"   @mouseleave="active = false" @click="markRead(false)" >
+        <div class="email-preview" :class="isRead"  @mouseover="active= true"   @mouseleave="active = false" @click="markRead(false)" >
         
                   <div class="email-content-prev" >
                     <span @click.prevent.stop="starEmail" class="far fa-star" :class="isStarred"></span>

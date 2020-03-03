@@ -22,8 +22,7 @@ export default {
       emails: [],
       filterBy: null,
       mailbox: null,
-      sortBy: null,
-      unReadCounter: 1
+      sortBy: null
     }
   },
   computed: {
@@ -45,13 +44,7 @@ export default {
           (regex.test(email.subject) ||
             regex.test(email.from) ||
             regex.test(email.body)) &&
-          (this.filterBy.read === 'All'
-            ? email
-            : this.filterBy.read === 'Read'
-            ? email.isRead
-            : !email.isRead)
-        )
-      })
+          (this.filterBy.read === 'All' ? email : this.filterBy.read === 'Read' ? email.isRead : !email.isRead))})
       return filteredEmails
     }
   },
@@ -69,7 +62,6 @@ export default {
 
     eventBus.$on('emailClicked', currEmail => {
       emailService.updateIsRead(currEmail.email, currEmail.toggleMark)
-        
     })
     const mailbox = this.$route.params.filter
     if (mailbox) {

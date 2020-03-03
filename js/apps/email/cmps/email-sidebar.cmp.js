@@ -3,10 +3,10 @@ export default {
         <section class=email-sidebar-container>
           <div v-show="isMenuOpen" @click="toggleMenu" class="email-screen"></div>
           
-          <div @click="toggleMenu" class="menu-btn" :class="toggleNav">
-                <div class="email-bar1"></div>
+          <div @click="toggleMenu" class="open-sidebar-btn fas fa-chevron-circle-right" :class="toggleNav">
+                <!-- <div class="email-bar1"></div>
                 <div class="email-bar2"></div>
-                <div class="email-bar3"></div>
+                <div class="email-bar3"></div> -->
             </div>
         <div class="email-sidebar" :class="openSidebar">    
              <router-link class="newEmail-link" :to="'/email/new'" exact>New Email</router-link>    

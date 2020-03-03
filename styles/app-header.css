@@ -23,12 +23,12 @@
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   opacity: 0;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
-
+/* 
 .screen-open {
   visibility: visible;
-}
+} */
 .page-title {
   font-size: 2rem;
 }
@@ -81,7 +81,9 @@
 .change .bar1 {
   -webkit-transform: rotate(-45deg) translate(-9px, 6px);
   transform: rotate(-45deg) translate(-9px, 6px);
+  background-color: rgb(53,53, 253);
 }
+
 
 .change .bar2 {
   opacity: 0;
@@ -90,6 +92,7 @@
 .change .bar3 {
   -webkit-transform: rotate(45deg) translate(-8px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
+  background-color: rgb(53,53, 253);
 }
 
 @media (max-width: 740px) {

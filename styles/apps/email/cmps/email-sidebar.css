@@ -24,30 +24,11 @@
   border-radius: 0px 15px 65px 0px;
 }
 
-.email-bar1,
-.email-bar2,
-.email-bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: rgb(233, 233, 233);
-  margin: 6px 0;
-  transition: 0.4s;
+.open-sidebar-btn {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+  display: none !important;
 }
-
-.change .email-bar1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-  transform: rotate(-45deg) translate(-9px, 6px);
-}
-
-.change .email-bar2 {
-  opacity: 0;
-}
-
-.change .email-bar3 {
-  -webkit-transform: rotate(45deg) translate(-8px, -8px);
-  transform: rotate(45deg) translate(-8px, -8px);
-}
-
 .email-screen {
   position: fixed;
   left: 0;
@@ -69,10 +50,13 @@
     transition: transform 0.6s;
     background-color: #f0f5f9;
     height: 100vh;
-
   }
-.sidebar-open {
+  .sidebar-open {
     transform: translate(0, 0);
     z-index: 999;
+  }
+  .open-sidebar-btn {
+    display: inline-block !important;
+    color: #8f9ba5;
   }
 }

@@ -7,7 +7,7 @@ export default {
     <router-link class="active" to="/" exact><h1 class="logo">Apps<span>u</span>s</h1></router-link>
 
       
-        <div @click="toggleMenu" class="menu-btn" >
+        <div @click="toggleMenu" class="menu-btn" :class="toggleNav">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
@@ -39,7 +39,8 @@ export default {
     },
     openMenu() {
       return { 'menu-open': this.isMenuOpen }
-    }
+    },
+    
   },
   methods: {
     toggleMenu() {

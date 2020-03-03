@@ -17,7 +17,8 @@ const gEmails = [
   },
   {
     id: 'ada31sdq',
-    from: 'Daniel',
+    from: 'Luke',
+    subject: 'May the force be with you',
     body:
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
@@ -28,8 +29,8 @@ const gEmails = [
   },
   {
     id: 'adas2oapod',
-    from: 'Daniel',
-    subject: 'Wassap?',
+    from: 'Jason',
+    subject: 'How are you?',
     body:
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
@@ -40,8 +41,8 @@ const gEmails = [
   },
   {
     id: 'adza2sd',
-    from: 'Daniel',
-    subject: 'ANSWER ME!!!?',
+    from: 'Dana',
+    subject: 'Secheduled new meeting on sunday',
     body:
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
@@ -52,7 +53,7 @@ const gEmails = [
   },
   {
     id: 'adasdgdfh',
-    from: 'Daniel',
+    from: 'Yossi',
     subject: 'YOOOOO?',
     body:
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
@@ -64,8 +65,8 @@ const gEmails = [
   },
   {
     id: 'ahhgfdasd',
-    from: 'Daniel',
-    subject: 'Wassap?',
+    from: 'Alon',
+    subject: 'Hi brother',
     body:
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,
@@ -76,8 +77,8 @@ const gEmails = [
   },
   {
     id: 'adtaweswd',
-    from: 'Daniel',
-    subject: 'Wassap?',
+    from: 'John',
+    subject: 'Hey there!!',
     body:
       'sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum p!',
     isRead: false,

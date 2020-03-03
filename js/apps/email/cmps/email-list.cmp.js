@@ -7,7 +7,7 @@ export default {
             <template v-for="email in emails">
               <router-link :to="'/email/'+email.id">  
               
-                  <email-preview :email="email"></email-preview>
+                  <email-preview :email="email" @contextmenu.prevent></email-preview>
               </router-link> 
             </template>
         </div>
